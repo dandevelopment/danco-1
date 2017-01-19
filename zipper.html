@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+<title>DanZip</title>
+    <style>
+    .button {
+            background-color: cornflowerblue; /* Green */
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 1s;
+            margin: 5px;
+            border-radius: 5px;
+            /*box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);*/
+        }
+    </style>
+  </head>
+  <body style="font-family: Verdana">
+    <h1 style="font:verdana;text-shadow:0px 0px 10px #808080;text-align:center;background-color: #ddd; /* Green */border: none;color: white;float: right;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;transition-duration: 1s;text-align:center;border-radius:5px;box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);">3.9</h1>
+    <p style="font:verdana;text-align:center;padding-left:10%;width:40%"><div style="margin-left:30%;background-color: efefef; /* Green */border: solid;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;transition-duration: 1s;text-align:center;border-radius:5px;box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);">
+    <h1>
+    Zipping
+    </h1>
+    <p>Thank you for using DanZip, a co production of Dan Eccieciency.<br>Hint: press the box you want to get the zip from, and use the keyboard shortcut: ctrl + a (on mac it's command + a)</p>
+     <div style=""><div onClick="savetodrive();google.script.run" class="button">Save to drive</div> | <div onClick="savetoemail()" class="button">Save as email</div></div>
+     <div id="saveencrypted"></div><div id="savedecrypted"></div>
+    <div style="background-color:#ddd;color:white;"id="Lbar"><p id="label"></p></div>
+    <div>
+    <input placeholder="Unzip" type="text" id="decrypt" >
+    <div onclick="decrypt()"class="button">Unzip</div>
+    <input placeholder="Zip" type="text" id="encrypt" >
+    <div onclick="encrypt()" class="button">Zip</div><br>
+    <textarea id="decrypted" style="border:solid;margin:20px;padding:10px;width:50%;height:100px;" rows="10" cols="50" readonly>     Where Unzipped text will appear</textarea><div id="charunzipped"></div><br>
+    <textarea id="encrypted" style="border:solid;margin:20px;padding:10px;width:50%;height:100px;" rows="10" cols="50" readonly>     Where Zipped text will appear</textarea><div id="charzipped"></div>
+    </div>
+                <br /><div style="font-size:20px;"><b>Dan co Member Features</b></div>
+            <a class="button" href="DanSecure.html">DanSecure Encryption</a>
+            <a class="button" href="random.html">Item Randomizer</a>
+            <a class="button" href="zip.html">Zipper</a>
+            <br>
+    </div><br>
+    <script>
+  
+    function savetodrive() {
+    document.getElementById('saveencrypted').innerHTML = '<div class="button" onclick="saveencryptedtodrive()">Save Zipped</div>'
+    document.getElementById('savedecrypted').innerHTML = '<div class="button" onclick="savedecryptedtodrive()">Save Unzipped</div>'
+    }
+    function savetoemail(){
+    document.getElementById('saveencrypted').innerHTML = '<div class="button" onclick="saveencryptedtoemail()">Save Zipped</div>'
+    document.getElementById('savedecrypted').innerHTML = '<div class="button" onclick="savedecryptedtoemail()">Save Unzipped</div>'
+    }
+    
+   
+    
+    var encryptinterval = ""
+    var decryptinterval = ""
+    
+    
+var elem = document.getElementById("Lbar");
+  var width = 0;
+  
+ // var encryptfinal = ''
+  //var decryptfinal = ''
+  
+      var s1 = ''
+      var s2 = ''
+      var s3 = ''
+      var s4 = ''
+      var s5 = ''
+      var s6 = ''
+      var s7 = ''
+      var s8 = ''
+      var s9 = ''
+      
+      var e3 = ''//e2.replace(" 2", "a");
+      var e4 = ''//e3.replace(" 3", "b");
+      var e5 = ''//e4.replace(" 4", "c");
+      var e6 = ''//e5.replace(" 5", "d");
+      var e7 = ''//e6.replace(" 6", "e");
+      var e8 = ''//e7.replace(" 7", "f");
+      var e9 = ''//e8.replace(" 8", "g");
+      var e10 = ''//e9.replace(" 9", "h");
+      var e11 = ''//e10.replace(" !)", "i");
+      var e12 = ''//e11.replace(" !!", "j");
+      var e13 = ''//e12.replace(" !@", "k");
+      var e14 = ''//e13.replace(" !#", "l");
+      var e15 = ''//e14.replace(" !$", "m");
+      var e16 = ''//e15.replace(" !%", "n");
+      var e17 = ''//e16.replace(" !^", "o");
+      var e18 = ''//e17.replace(" !&", "p");
+      var e19 = ''//e18.replace(" !*", "q");
+      var e20 = ''//e19.replace(" !(", "r");
+      var e21 = ''//e20.replace(" @)", "s");
+      var e22 = ''//e21.replace(" @!", "t");
+      var e23 = ''//e22.replace(" @@", "u");
+      var e24 = ''//e23.replace(" @#", "v");
+      var e25 = ''//e24.replace(" @$", "w");
+      var e26 = ''//e25.replace(" @%", "x");
+      var e27 = ''//e26.replace(" @^", "y");
+      var e28 = ''//e27.replace(" @&", "z");
+      var e29 = ''
+      var e30 = ''
+      var e31 = ''
+      var e32 = ''
+      var e33 = ''
+      var e34 = ''
+      var e35 = ''
+      var e36 = ''
+      var e37 = ''
+      var e38 = ''
+      var e39 = ''
+      var e40 = ''
+      var e41 = ''
+      var e42 = ''
+      var e43 = ''
+      var e44 = ''
+      var e45 = ''
+      var e46 = ''
+      var e47 = ''
+      var e48 = ''
+      var e49 = ''
+      var e50 = ''
+      var e51 = ''
+      var e52 = ''
+      var d3 = ''//d2.replace("a", " 2");
+      var d4 = ''//d3.replace("b", " 3");
+      var d5 = ''//d4.replace("c", " 4");
+      var d6 = ''//d5.replace("d", " 5");
+      var d7 = ''//d6.replace("e", " 6");
+      var d8 = ''//d7.replace("f", " 7");
+      var d9 = ''//d8.replace("g", " 8");
+      var d10 = ''//d9.replace("h", " 9");
+      var d11 = ''//d10.replace("i", " !)");
+      var d12 = ''//d11.replace("j", " !!");
+      var d13 = ''//d12.replace("k", " !@");
+      var d14 = ''//d13.replace("l", " !#");
+      var d15 = ''//d14.replace("m", " !$");
+      var d16 = ''//d15.replace("n", " !%");
+      var d17 = ''//d16.replace("o", " !^");
+      var d18 = ''//d17.replace("p", " !&");
+      var d19 = ''//d18.replace("q", " !*");
+      var d20 = ''//d19.replace("r", " !(");
+      var d21 = ''//d20.replace("s", " @)");
+      var d22 = ''//d21.replace("t", " @!");
+      var d23 = ''//d22.replace("u", " @@");
+      var d24 = ''//d23.replace("v", " @#");
+      var d25 = ''//d24.replace("w", " @$");
+      var d26 = ''//d25.replace("x", " @%");
+      var d27 = ''//d26.replace("y", " @^");
+      var d28 = ''//d27.replace("z", " @&");
+      var d29 = ''
+      var d30 = ''
+      var d31 = ''
+      var d32 = ''
+      var d33 = ''
+      var d34 = ''
+      var d35 = ''
+      var d36 = ''
+      var d37 = ''
+      var d38 = ''
+      var d39 = ''
+      var d40 = ''
+      var d41 = ''
+      var d42 = ''
+      var d43 = ''
+      var d44 = ''
+      var d45 = ''
+      var d46 = ''
+      var d47 = ''
+      var d48 = ''
+      var d49 = ''
+      var d50 = ''
+      var d51 = ''
+      var d52 = ''
+      //used by workde()
+      var done2 = false
+      var i2 = 0
+      var real2 = ''
+     //used by worken()
+      var done = false
+      var i = 0
+    function worken() {
+    var d = document.getElementById("encrypt").value
+    i++
+      if(i>d.length){
+      clearInterval(encryptinterval)
+      }
+    if(done == true){
+      d2 = d52.replace(" ", "Ɪ");
+      
+      }else{
+      d2 = d.replace(" ", "Ɪ");
+      done = true
+      }
+          elem.style.width = i/d.length*100 + '%'; 
+    document.getElementById("label").innerHTML = Math.floor(i/d.length*100)  + '%';
+     
+      /*
+      d3 = d2.replace("a", "Ꜣ");
+      d4 = d3.replace("b", "ꜣ");
+      d5 = d4.replace("c", "Ꜥ");
+      d6 = d5.replace("d", "ꜥ");
+      d7 = d6.replace("e", "ꬴ");
+      d8 = d7.replace("f", "ꜧ");
+      d9 = d8.replace("g", "Ꜩ");
+      d10 = d9.replace("h", "ꜩ");
+      d11 = d10.replace("i", "Ꜫ");
+      d12 = d11.replace("j", "ꜫ");
+      d13 = d12.replace("k", "Ꜭ");
+      d14 = d13.replace("l", "ꜭ");
+      d15 = d14.replace("m", "Ꜯ");
+      d16 = d15.replace("n", "ꜯ");
+      d17 = d16.replace("o", "ꜰ");
+      d18 = d17.replace("p", "ꜱ");
+      d19 = d18.replace("q", "Ꜳ");
+      d20 = d19.replace("r", "ꜳ");
+      d21 = d20.replace("s", "Ꜵ");
+      d22 = d21.replace("t", "ꜵ");
+      d23 = d22.replace("u", "Ꜷ");
+      d24 = d23.replace("v", "ꜷ");
+      d25 = d24.replace("w", "Ꜹ");
+      d26 = d25.replace("x", "ꜹ");//ặ
+      d27 = d26.replace("y", "Ꜻ");
+      d28 = d27.replace("z", "ꜻ");
+       d29 = d28.replace("1", "Ꜽ");
+       d30 = d29.replace("2", "ꜽ");
+       d31 = d30.replace("3", "Ꜿ");
+       d32 = d31.replace("4", "ꜿ");
+       d33 = d32.replace("5", "Ꝁ");
+       d34 = d33.replace("6", "ꝁ");*/
+       d35 = d2.replace("with", "Ꝃ");
+       d36 = d35.replace("have", "ꝃ");
+       d37 = d36.replace("that", "Ꝅ");
+       d38 = d37.replace("the", "ꝅ");
+       d39 = d38.replace("you", "Ꝇ");
+       d40 = d39.replace("not", "ꝇ");
+       d41 = d40.replace("for", "Ꝉ");
+       d42 = d41.replace("and", "ꝉ");
+       d43 = d42.replace("do", "Ꝋ");
+       d44 = d43.replace("it", "ꝋ");
+       d45 = d44.replace("on", "Ꝍ");
+       d46 = d45.replace("he", "ꝍ");
+       d47 = d46.replace("in", "ꬰ");
+       d48 = d47.replace("as", "ꝏ");
+       d49 = d48.replace("of", "Ꝑ");
+       d50 = d49.replace("to", "ꝑ");
+       d51 = d50.replace("be", "Ꝓ");
+       d52 = d51.replace("at", "ꝓ");
+    //   console.log(d52)
+   //   var i3 = 0
+    //  while(i3<d.length){
+       rch = Math.floor(Math.random() * 10);
+       if (rch == 1) {
+   //    d52 += 'Ꝏ'
+       }
+       if (rch == 2) {
+    //   d52 += 'ꬱ'
+       }
+       if (rch == 3) {
+     //  d52 += 'ꬲ'
+       }
+       if (rch == 4) {
+      // d52 += 'Ǔ'
+       }
+       if (rch == 5) {
+    //   d52 += 'Ꜧ'
+      }
+       if (rch == 6) {
+     //  d52 += 'ꬵ'
+       }
+       if (rch == 7) {
+      // d52 += 'ꬶ'
+       }
+       if (rch == 8) {
+      // d52 += 'ꬷ'
+       }
+       if (rch == 9) {
+      // d52 += 'ꬸ'
+       }
+    //   console.log(real)
+    //  }
+  //          }
+       document.getElementById('encrypted').innerHTML = d52
+      document.getElementById("charzipped").innerHTML = d52.length + ' Charachters';
+ //     encryptfinal = d52
+    }
+    
+    function workde() {
+    i2++
+      var e = document.getElementById("decrypt").value
+      if(i2>e.length){
+      clearInterval(decryptinterval)
+      }
+    
+    if(done2 == true){
+      e2 = e52.replace("Ɪ", " ")
+    //  console.log(e2)
+      } else {
+      e2 = e.replace("Ɪ", " ");
+      done2 = true
+      }
+    elem.style.width = i2/e.length *100 + '%'; 
+    document.getElementById("label").innerHTML = Math.floor(i2/e.length *100)  + '%';
+      
+      /*
+       e3 = e2.replace("Ꜣ", "a");
+       e4 = e3.replace("ꜣ", "b");
+       e5 = e4.replace("Ꜥ", "c");
+       e6 = e5.replace("ꜥ", "d");
+       e7 = e6.replace("ꬴ", "e");
+       e8 = e7.replace("ꜧ", "f");
+       e9 = e8.replace("Ꜩ", "g");
+       e10 = e9.replace("ꜩ", "h");
+       e11 = e10.replace("Ꜫ", "i");
+       e12 = e11.replace("ꜫ", "j");
+       e13 = e12.replace("Ꜭ", "k");
+       e14 = e13.replace("ꜭ", "l");
+       e15 = e14.replace("Ꜯ", "m");
+       e16 = e15.replace("ꜯ", "n");
+       e17 = e16.replace("ꜰ", "o");
+       e18 = e17.replace("ꜱ", "p");
+       e19 = e18.replace("Ꜳ", "q");
+       e20 = e19.replace("ꜳ", "r");
+       e21 = e20.replace("Ꜵ", "s");
+       e22 = e21.replace("ꜵ", "t");
+       e23 = e22.replace("Ꜷ", "u");
+       e24 = e23.replace("ꜷ", "v");
+       e25 = e24.replace("Ꜹ", "w");
+       e26 = e25.replace("ꜹ", "x");
+       e27 = e26.replace("Ꜻ", "y");
+       e28 = e27.replace("ꜻ", "z");
+       e29 = e28.replace("Ꜽ", "1");
+       e30 = e29.replace("ꜽ", "2");
+       e31 = e30.replace("Ꜿ", "3");
+       e32 = e31.replace("ꜿ", "4");
+       e33 = e32.replace("Ꝁ", "5");
+       e34 = e33.replace("ꝁ", "6");*/
+       e35 = e2.replace("Ꝃ", "with");
+       e36 = e35.replace("ꝃ", "have");
+       e37 = e36.replace("Ꝅ", "that");
+       e38 = e37.replace("ꝅ", "the");
+       e39 = e38.replace("Ꝇ", "you");
+       e40 = e39.replace("ꝇ", "not");
+       e41 = e40.replace("Ꝉ", "for");
+       e42 = e41.replace("ꝉ", "and");
+       e43 = e42.replace("Ꝋ", "do");
+       e44 = e43.replace("ꝋ", "it");
+       e45 = e44.replace("Ꝍ", "on");
+       e46 = e45.replace("ꝍ", "he");
+       e47 = e46.replace("ꬰ", "in");
+       e48 = e47.replace("ꝏ", "as");
+       e49 = e48.replace("Ꝑ", "of");
+       e50 = e49.replace("ꝑ", "to");
+       e51 = e50.replace("Ꝓ", "be");
+       e52 = e51.replace("ꝓ", "at");
+      // console.log(e52)
+     //  s1 = e52.replace("Ꝏ", "");//Ǔ
+      // s2 = s1.replace("ꬱ", "");
+       //s3 = s2.replace("ꬲ", "");
+       //s4 = s3.replace("ꬳ", "");
+       //s5 = s4.replace("Ꜧ", "");
+       //s6 = s5.replace("ꬵ", "");
+       //s7 = s6.replace("ꬶ", "");
+       //s8 = s7.replace("ꬷ", "");
+      //s9 = s8.replace("Ǔ", "");
+      // e52 = s9.replace("ꬸ", "");
+      document.getElementById('decrypted').innerHTML = e52
+      document.getElementById("charunzipped").innerHTML = e52.length + ' Charachters';
+    //  decryptfinal = e52
+    }
+    
+    function encrypt() {
+      var d2 = document.getElementById("encrypt").value
+   //   width = 0;
+//   var d = document.getElementById("encrypt").value
+    elem.style.width = 0
+    document.getElementById("label").innerHTML = 0
+      var tiom = 0.1
+      if(d2.length>100){tiom = 0.01}
+      if(d2.length>1000){tiom = 0.001}
+      if(d2.length>10000){tiom = 0.0001}
+      console.log(tiom)
+      encryptinterval = setInterval(function(){worken()},tiom)
+   //   while(i<1000){
+    //  if(i>998){
+     // clearInterval(encryptinterval)
+      //}
+      
+      
+   //   }
+      /* 
+      var fake = encryptfinal.length
+      var i3 = 0
+      var real = encryptfinal
+      var rch = ''
+      console.log(real)
+      while(i3<fake*10){
+      i3++
+       rch = Math.floor(Math.random() * 10);
+       if (rch == 1) {
+   //    real += 'ꬰ'
+       }
+       if (rch == 2) {
+    //   real += 'ꬱ'
+       }
+       if (rch == 3) {
+     //  real += 'ꬲ'
+       }
+       if (rch == 4) {
+      // real += 'ꬳ'
+       }
+       if (rch == 5) {
+      // real += 'ꬴ'
+       }
+       if (rch == 6) {
+      // real += 'ꬵ'
+       }
+       if (rch == 7) {
+       //real += 'ꬶ'
+       }
+       if (rch == 8) {
+     //  real += 'ꬷ'
+       }
+       if (rch == 9) {
+    //   real += 'ꬸ'
+       }
+       console.log(real)
+      }
+      document.getElementById('encrypted').innerHTML = real*/
+      done = false
+      i = 0
+    }
+    
+    function decrypt() {
+   // width = 0;
+       var e2 = document.getElementById("decrypt").value
+   elem.style.width = 0
+   document.getElementById("label").innerHTML = 0
+  //    var e = document.getElementById("decrypt").value
+            var tiom2 = 0.1
+      if(e2.length>100){tiom = 0.01}
+      if(e2.length>1000){tiom = 0.001}
+      if(e2.length>10000){tiom = 0.0001}
+      console.log(tiom2)
+      decryptinterval= setInterval(function() {workde()},tiom2)
+   //   while(i2<50000){
+    //  if(i2>49998){
+     // clearInterval(decryptinterval)
+      //}
+      
+      
+     //  } 
+      /*
+       var i4 = 0
+       var actual = e52
+       while(i4<e52.length){
+       i4++
+       actual = actual.replace("ꬰ", "");
+       actual = actual.replace("ꬱ", "");
+       actual = actual.replace("ꬲ", "");
+       actual = actual.replace("ꬳ", "");
+       actual = actual.replace("ꬴ", "");
+       actual = actual.replace("ꬵ", "");
+       actual = actual.replace("ꬶ", "");
+       actual = actual.replace("ꬷ", "");
+       actual = actual.replace("ꬸ", "");
+       }*/
+        //     document.getElementById('decrypted').innerHTML = actual
+        done2 = false
+      i2 = 0
+    }
+    </script>
+    <script></script>
+  </body>
+</html>

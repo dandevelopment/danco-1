@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dan Enterprises Dashboard</title>
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
+    <style>
+                .titla {
+                    background-color: #0094ff;
+                    color: white;
+                    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+                    padding: 10px;
+                    font-size: large;
+                    width: 100%;
+                    font-family: 'Trebuchet MS';
+                    height: 55px;
+                }
+
+                .stitla {
+                    background-color: #ffffff;
+                    color: grey;
+                    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+                    padding: 10px;
+                    font-size: medium;
+                    width: 30%;
+                    border-bottom-right-radius: 10px;
+                }
+
+                canvas {
+                    border: 1px solid #d3d3d3;
+                    background-color: #f1f1f1;
+                }
+
+                .mainI {
+                    float: left;
+                    width: 30%;
+                    box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2), 0 6px 6px 0 rgba(0,0,0,0.19);
+                    //background-color: rgba(211, 211, 211, 0.20);
+                    background-color: rgba(255, 255, 255, 0.83);
+                    margin: 16px;
+                    height: 250px;
+                    color: white;
+                    transition-duration: 1s;
+                    display: inline-block;
+                    // filter:blur(7px);
+                }
+
+                    .mainI:hover {
+                        box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0,0,0,0.19);
+                        //background-color: rgba(211, 211, 211, 0.63);
+                        background-color: rgba(211, 211, 211, 0.74);
+                    }
+
+                .bodyI {
+                    background-color: #0088ea;
+                    border-radius: 5px;
+                    margin: 10px;
+                    padding: 10px;
+                    font-weight: 700;
+                    //height:500px;
+                }
+
+                .tI {
+                    padding: 10px;
+                    color: black;
+                }
+
+                .button {
+                    background-color: cornflowerblue; /* Green */
+                    border: none;
+                    color: white;
+                    padding: 5px 10px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    transition-duration: 1s;
+                    margin: 5px;
+                    border-radius: 5px;
+                    /*box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);*/
+                }
+
+                .button1 {
+                    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+                }
+
+                .button:hover {
+                    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                    color: dodgerblue;
+                    background-color: white;
+                    padding: 15px;
+                }
+
+                .pagee {
+                    background-color: white;
+                    width: 70%;
+                    margin-left: 15%;
+                    margin-right: 15%;
+                    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                }
+
+                .menuButton {
+                    height: 100%;
+                    width: 20%;
+                    background-color: cornflowerblue;
+                    transition-duration: 0.5s;
+                    display: inline-block;
+                }
+
+                    .menuButton:hover {
+                        background-color: #0088ea;
+                    }
+                /* {
+            float: left;
+            text-shadow:0px 0px 10px #333;
+        }*/
+
+                .ly a {
+                    float: left;
+                    display: block;
+                    color: white;
+                    text-align: center;
+                    padding: 14px 16px;
+                    text-decoration: none;
+                    //background-color:rgba(0, 148, 255, 0.80);
+                }
+
+                    .ly a:hover:not(.active) {
+                        background-color: #0088ea;
+                        transition-duration: 1s;
+                        text-shadow: 0px 0px 10px #333;
+                        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+                        color: white;
+                    }
+
+                .active {
+                    float: left;
+                    transition-duration: 1s;
+                    background-color: #1377d8;
+                }
+
+.menutop {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    //background: linear-gradient(lightgray, rgba(255, 255, 255, 0.50));
+    background-color:rgba(103, 169, 217, 0.0);
+   // box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border:none;
+    //height:100px;
+   // border-bottom:solid;
+    border-color:white;
+   // position:absolute;
+   left:0;
+}
+.notActive{
+    background-color:rgba(0, 148, 255, 0.80)
+}
+
+    </style>
+</head>
+<body onload="" style="font-family:Verdana;background-image:url(http://nicecastles.xyz/wp-content/uploads/2016/03/how-to-build-a-real-castle-tower.jpg);">
+    <iframe height="100" width="100" src="bar.html" class="menutop" id="menutop">
+    <ul class="menutop" >
+        <!--style="box-shadow:0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"-->
+        <li class="ly"><a><img src="http://domenicosottosanti.altervista.org/images/logo.jpg" width="50"height="50"></a></li>
+        <li class="ly"><a class="active" href="Home">DOES NOT SUPPORT IFRAME</a></li>
+        <li class="ly"><a class="notActive" href="#news">News</a></li>
+        <li class="ly"><a class="notActive" href="#contact">Contact</a></li>
+        <li class="ly"><a class="notActive" href="#about">About</a></li>
+        <li style="width:100%;text-decoration:none;border-color:black;margin-top:10px;margin-bottom:0px;float:left;margin-left:100px;border:solid;border-radius:3px;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);background-color:rgba(255, 255, 255, 0.55);width:43%"><marquee>Thank's for visiting Daniel.com  &copy;&reg;Dan co.  Tip: Logging in is recommended.   Feeling bored? Play a game!  </marquee></li>
+        <!--<li class="ly"><button id="btn2" class="button">Close Menu Bar</button></li>-->
+        <li class="ly"><a class="button"style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Login" onclick="//Login()">Log In</a></li>
+        <li class="ly"><a class="button" style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Signup" onclick="//Login()">Sign Up</a></li>
+    </ul>
+        </iframe>
+    <div class="ly"><button id="btn2" class="button" style="position:fixed;top:0;right:0;margin-right:230px;">Close Menu Bar</button></div>
+    <button id="btn1" class="button" style="position: fixed;top:0;right:0;">Open Menu Bar</button>
+    <!--<div id="loginsidebar" style="position: fixed;bottom:0;left:0;background-color:rgba(255, 255, 255, 0.92);list-style-type: none;margin: 0;padding: 0;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);overflow: hidden;"><div><button id="closlogb" class="button">Close</button></div> <iframe src="Login.php" height="200" width="300"></iframe></div>-->
+    <div class="pagee" style="background-color:white;height:800px;margin-top:150px" id="teest">
+        <h1 style="padding:50px;padding-bottom:10px;color:#0088ea">Dan Dashboard</h1>
+        <div id="dashboard" style="border-top:solid;border-bottom:thick;background-color:#eaeaea;height:700px;padding-left:50px;padding-top:30px;">
+            <div style="font-size:20px;"><b>My Acount</b><br></div>
+            <p>Profile Photo:</p>
+            <div id="profph"><img src="https://www.krowdfile.org/Images/profile_default.jpg" style="height:90px;width:110px;"></div>
+            <!--<iframe style="float:right;border:none;"height="200"width="500" src="profilephotochange.php"scrolling="no"></iframe>
+-->            
+            <p>Username: <b><span id="sin"></span></b></p>
+            <p>Email: <b><span id="sin2"></span></b></p>
+            <p>Password: (hidden) <i><b><span id="sin3" style="filter:blur(2px)"></span></b></i></p>
+            <a href="Login.html" class="button">Sign In With A diffrent Account</a><a onclick="delcook()" class="button">Sign Out</a>
+            <br />
+            <br /><div style="font-size:20px;"><b>Dan co Member Features</b></div>
+            <a class="button" href="DanSecure.html">DanSecure Encryption</a>
+            <a class="button" href="random.html">Item Randomizer</a>
+            <a class="button" href="zip.html">Zipper</a>
+            <br>
+            <br /><div style="font-size:20px;"><b>Acount Preferences</b></div>
+            <p>Homepage Movie: <b><span>Dan App Preview</span></b><br /><br />Customization coming soon!</p>
+        </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+                var rusername = getCookie("username");
+        var myVar = setInterval(function () { checkd() }, 1000);
+function checkd() {
+    var rusername2 = getCookie("username");
+    if (rusername2 == "") {
+                document.getElementById("dashboard").innerHTML = '<b><span style="color:red">Sorry, Dashboard is only avalable for Dan Members. To become a member, press sign up. If you already have a Dan acount, press log in.</span></b><a class="button"style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Signup.html"target="_blank" onclick="//Login()">Sign Up</a><a class="button"style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Login.html"target="_blank" onclick="//Login()">Log In</a>';
+    clearInterval(myVar)
+    }
+}
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+        function delcook() {
+            document.cookie = "username=;";
+            document.cookie = "password=;";
+            document.cookie = "email=;";
+            document.cookie = "photo=;";
+                var auth2 = gapi.auth2.getAuthInstance();
+                auth2.signOut().then(function () {
+      console.log('User signed out.');})
+            var myWindow = window.open("", "MsgWindow", "width=200,height=100");
+            myWindow.document.write('<p style="font-family:Verdana">Successfully logged out. Now taking you to the homepage.</p>');
+            documet.src = 'index.html'
+  }
+        
+        //document.getElementById('demoeee').innerHTML = 'Welcome, '// + rusername;
+        // alert(getCookie('username'));
+        function checkCookie() {
+            // alert('testt')
+            var rusername = getCookie("username");
+            var rpassword = getCookie("password");
+            var remail = getCookie("email");
+            var rphoto = getCookie("photo");
+           // var fogoogle = getCookie("signedintogoogle");
+      //      var v1 = rphoto.replace("%3A", ":");
+       //     var v2 = v1.replace("%2F", "/");
+        //    var v3 = v2.replace("%2F", "/");
+         //   var v4 = v3.replace("%2F", "/");
+          //  var v5 = v4.replace("%2F", "/");
+           // var v6 = v5.replace("%2F", "/");
+            ///var v7 = v6.replace("%2F", "/");
+            //var v8 = v7.replace("%2F", "/");
+           // var v3 = rphoto.replace("Microsoft", "W3Schools");
+           // var v3 = rphoto.replace("Microsoft", "W3Schools");
+            
+            if (rusername != "") {
+                /*
+                var rrr = 'false';
+                if(fogoogle != 'true'){
+                rrr = remail.substr('0', remail.indexOf('%40')) + '@' + remail.substr(remail.indexOf('%40') + 3, remail.length);
+                    
+                }
+                else {
+                rrr = remail;
+                }*/
+                document.getElementById("sin").innerHTML = rusername;
+                document.getElementById("sin2").innerHTML = remail;
+                document.getElementById("sin3").innerHTML = rpassword;
+                if (rphoto != "") {
+                    document.getElementById("profph").innerHTML = '<img src="' + rphoto  + '" style="height:120px;width:120px;border-radius: 100px;"id="profph">';
+                }
+              //  document.getElementById("logn").innerHTML = '<div class="ly"><a class="button"style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Dashboard"target="_blank" onclick="//Login()">Dan Dashboard</a></div>';
+                //alert(rusername)
+                //  alert("Welcome again " + username);
+            } else {
+                document.getElementById("dashboard").innerHTML = '<b><span style="color:red">Sorry, Dashboard is only avalable for Dan Members. To become a member, press sign up. If you already have a Dan acount, press log in.</span></b><a class="button"style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Signup.html"target="_blank" onclick="//Login()">Sign Up</a><a class="button"style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Login.html"target="_blank" onclick="//Login()">Log In</a><br>            <iframe src="Login.html" width="100" height="100" style="width:120px;height:120px;border:none"></iframe>';
+                //  username = prompt("Please enter your name:", "");
+                //  if (username != "" && username != null) {
+                //   setCookie("username", username, 365);
+                //  }
+                // document.getElementById('demoeed').innerHTML = 'Welcome, ' + rusername;
+            }
+        }
+        checkCookie();
+        function Dterms() {
+
+            var Dwindow = window.open("", "MsgWindow", "width=1000,height=1000")
+            Dwindow.document.write('<p>ERROR</p>')
+            Dwindow.document.location.href = 'Theatre.html'
+        }
+        function Cterms() {
+
+            var Dwindow = window.open("", "MsgWindow", "width=1000,height=1000")
+            Dwindow.document.write('<p>ERROR</p>')
+            Dwindow.document.location.href = 'Apps.html'
+        }
+        function Games() {
+
+            var Dwindow = window.open("", "MsgWindow", "width=1000,height=1000")
+            Dwindow.document.write('<p>ERROR</p>')
+            Dwindow.document.location.href = 'Games.html'
+        }
+        function Login() {
+
+            var Dwindow = window.open("", "MsgWindow", "width=1000,height=1000")
+            Dwindow.document.write('<p>ERROR</p>')
+            Dwindow.document.location.href = 'login'
+        }
+        // function closelogin() {
+
+        //    }
+    </script>
+    <script>
+        $("#btn1").fadeOut();
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#menutop").animate({ height: "10px" });
+                $("#menutop").animate({ width: "100%" });
+                $("#menutop").animate({ height: "100px" });
+                $("#btn1").fadeOut();
+                $("#btn2").fadeIn();
+            });
+            $("#btn2").click(function () {
+                $("#menutop").animate({ height: "10px" });
+                $("#menutop").animate({ width: "0px" });
+                $("#menutop").animate({ height: "0px" });
+                $("#btn2").fadeOut();
+                $("#btn1").fadeIn();
+            });
+        });
+        $("#opnlogb").fadeOut();
+        $(document).ready(function () {
+            $("#closlogb").click(function () {
+                $("#loginsidebar").animate({ width: "10px" });
+                $("#loginsidebar").animate({ height: "0px" });
+                $("#loginsidebar").animate({ width: "0px" });
+                $("#closlogb").fadeOut();
+                $("#opnlogb").fadeIn();
+            });
+        })
+        $(document).ready(function () {
+            $("#opnlogb").click(function () {
+                $("#loginsidebar").animate({ height: "10px" });
+                $("#loginsidebar").animate({ width: "300px" });
+                $("#loginsidebar").animate({ height: "300px" });
+                $("#opnlogb").fadeOut();
+                $("#closlogb").fadeIn();
+            });
+        })
+    </script>
+</body>
+</html>

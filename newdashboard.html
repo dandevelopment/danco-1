@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dan Enterprises - Home</title>
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
+    <style>
+        .titla {
+          background-color: #0094ff;
+          color: white;
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          padding: 10px;
+          font-size: large;
+          width: 100%;
+          font-family: 'Trebuchet MS';
+          height: 55px;
+        }
+        
+        .stitla {
+          background-color: #ffffff;
+          color: grey;
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          padding: 10px;
+          font-size: medium;
+          width: 30%;
+          border-bottom-right-radius: 10px;
+        }
+        
+        canvas {
+          border: 1px solid #d3d3d3;
+          background-color: #f1f1f1;
+        }
+        
+        .mainI {
+          float: left;
+          width: 30%;
+          box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
+          //background-color: rgba(211, 211, 211, 0.20);
+          background-color: rgba(255, 255, 255, 0.83);
+          margin: 16px;
+          height: 250px;
+          color: white;
+          transition-duration: 1s;
+          display: inline-block;
+          // filter:blur(7px);
+        }
+        
+        .mainI:hover {
+          box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          //background-color: rgba(211, 211, 211, 0.63);
+          background-color: rgba(211, 211, 211, 0.74);
+        }
+        
+        .bodyI {
+          background-color: #0088ea;
+          border-radius: 5px;
+          margin: 10px;
+          padding: 10px;
+          font-weight: 700;
+          //height:500px;
+        }
+        
+        .tI {
+          padding: 10px;
+          color: black;
+        }
+        
+        .button {
+          background-color: cornflowerblue;
+          /* Green */
+          border: none;
+          color: white;
+          padding: 5px 10px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          transition-duration: 1s;
+          margin: 5px;
+          border-radius: 5px;
+          /*box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);*/
+        }
+        
+        .button1 {
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        
+        .button:hover {
+          box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+          color: dodgerblue;
+          background-color: white;
+          padding: 15px;
+        }
+        
+        .pagee {
+          background-color: white;
+          width: 70%;
+          margin-left: 15%;
+          margin-right: 15%;
+          box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+        
+        .menuButton {
+          height: 100%;
+          width: 20%;
+          background-color: cornflowerblue;
+          transition-duration: 0.5s;
+          display: inline-block;
+        }
+        
+        .menuButton:hover {
+          background-color: #0088ea;
+        }
+        /*scrollbar*/
+        
+        ::-webkit-scrollbar {
+          /*body*/
+          width: 30px;
+        }
+        
+        ::-webkit-scrollbar-track {
+          /*track*/
+          background-color: rgba(0, 0, 0, 0);
+          /*border-radius: 10px;*/
+        }
+        
+        ::-webkit-scrollbar-thumb {
+          /*drag*/
+          //border-radius: 10px;
+          background-repeat: no-repeat;
+          background-image: url(https://sites.google.com/a/lca.edu/haskins/home/3754.png);
+        }
+        /* {
+    float: left;
+    text-shadow:0px 0px 10px #333;
+}*/
+        
+        .ly a {
+          float: left;
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          //background-color:rgba(0, 148, 255, 0.80)
+        }
+        
+        .ly a:hover:not(.active) {
+          background-color: #0088ea;
+          transition-duration: 1s;
+          text-shadow: 0px 0px 10px #333;
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          color: white;
+        }
+        
+        .active {
+          float: left;
+          transition-duration: 1s;
+          background-color: #1377d8;
+        }
+        
+        .menutop {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          //background: linear-gradient(lightgray, rgba(255, 255, 255, 0.50));
+          background-color: rgba(103, 169, 217, 0.0);
+          // box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+          position: fixed;
+          top: 0;
+          width: 100%;
+          border: none;
+          //height:100px;
+          // border-bottom:solid;
+          border-color: white;
+          // position:absolute;
+          left: 0;
+        }
+        
+        .notActive {
+          background-color: rgba(0, 148, 255, 0.80)
+        }
+        
+        .itemz {
+          box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+          //padding:30px;
+          margin: 20px;
+          //height:300px;
+          display: inline-block;
+					float:right;
+        }
+        
+        .tpof {
+          height: 20px;
+          //padding: 20px;
+					padding-top:10px;
+					padding-bottom:10px;
+					padding-left:10%;
+          width: 90%;
+          color: white;
+          font-size: 20px;
+        }
+
+    </style>
+</head>
+<body style="font-family:Verdana;">
+  <iframe height="100" width="100" src="bar.html" class="" style="display:none" id="menutop"></iframe>
+  <div style="position:absolute;left:0;width:30%;box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);background-color:#efefef;height:100%">
+    <h1 style="color:white;background-color:cornflowerblue;padding-top:10px;padding-bottom:10px;"id="usr">Dan co. Dashboard</h1>
+    <div style="padding:25px;">
+		<b><div style="font-size:30px;text-align:center" id=""></div></b>
+      <div style="height:200px;width:100%">
+        <img id="pro" style="width:100%;height:100%;object-fit: cover;" src="http://www.agathame.com/media/testimonials//f/a/facebook-default-no-profile-pic_3.jpg" />
+      </div>
+      <input style="position:absolute;display:none" type="file" id="file_upload" onchange="Chp(this.files)" />
+      <a href="" id="uploader" class="button"style="width:85%">Change</a>
+			<div style="//background: linear-gradient(to right,rgba(100, 149, 237, 0.68), rgba(0, 0, 0, 0));padding:5px">
+			<p style="padding-top:5px;">Dan Bribes</p>
+			<div style="margin-bottom:5%;margin-right:5%;margin-left:5%;height:30px;border-radius:10px;width:90%;background-color:#717171"><div style="height:100%;width:0%;border-radius:10px;background-color:cornflowerblue;color:white;text-align:center;"id="bribes"></div></div>
+			<p style="padding-top:5px;">Rank</p>
+			<div style="margin-bottom:5%;margin-right:5%;margin-left:5%;height:30px;border-radius:10px;width:90%;background-color:#717171"><div style="height:100%;width:80%;border-radius:10px;background-color:cornflowerblue;color:white;text-align:center;"id="rank">CEO</div></div>
+			<p style="padding-top:5px;">Time to Next Award</p>
+			<div style="margin-bottom:5%;margin-right:5%;margin-left:5%;height:30px;border-radius:10px;width:90%;background-color:#717171"><div style="height:100%;width:0%;border-radius:10px;background-color:cornflowerblue;color:white;text-align:center;"id="award"></div></div>
+			</div>
+    </div>
+  </div>
+  <div class="itemz" style="width:60%" id="visitreward">
+    <div class="tpof" style="background:cornflowerblue">
+      Welcome
+    </div>
+		<img style="width:100px;float:left;margin:5px" src="http://vignette2.wikia.nocookie.net/avatartheroleplayadventure/images/0/02/Present.png/revision/latest?cb=20120617203649">
+    <div style="margin:7%;width:93%">
+       Thank you for visiting the Dan co Dashboard! Just for that, we'll give you 5 extra bribe Dan's!
+      <a href="" onclick="collectreward('visit')" class="button">Collect</a>
+    </div>
+  </div>
+	<div class="itemz" style="width:65%" id="visitreward">
+    <div class="tpof" style="background:cornflowerblue">
+      Happy Newyear!
+    </div>
+		<img style="width:100px;float:left;margin:5px" src="http://4vector.com/i/free-vector-new-year-icon_101905_New_Year_Icon.png">
+    <div style="margin:7%;width:93%">
+       Happy newyear from Dan co, and a merry christmas! Check out our special christmas commercial!
+      <a href="Theatre.html" onclick="" class="button">Watch</a>
+    </div>
+		</div>
+		<div style="width:70%;float:right;">
+	 <div class="itemz" style="width:25%" id="visitreward">
+    <div class="tpof" style="background:cornflowerblue">
+      Randomizer
+    </div>
+		<img style="width:100px;float:left;margin:5px" src="https://cdn4.iconfinder.com/data/icons/defaulticon/icons/png/256x256/media-shuffle.png">
+    <div style="margin:7%;width:93%">
+       Dan co Member feature
+      <a href="random.html" onclick="" class="button">Start</a>
+    </div>
+		
+  </div>
+	<div class="itemz" style="width:25%" id="visitreward">
+    <div class="tpof" style="background:cornflowerblue">
+      Encryptor
+    </div>
+		<img style="width:100px;float:left;margin:5px" src="http://simpleicon.com/wp-content/uploads/mail-encryption.png">
+    <div style="margin:7%;width:93%">
+       Dan co Member feature
+      <a href="DanSecure.html" onclick="" class="button">Start</a>
+    </div>
+  </div>
+		<div class="itemz" style="width:25%" id="visitreward">
+    <div class="tpof" style="background:cornflowerblue">
+      Zipper
+    </div>
+		<img style="width:100px;float:left;margin:5px" src="https://d30y9cdsu7xlg0.cloudfront.net/png/44144-200.png">
+    <div style="margin:7%;width:93%">
+       Dan co Member feature
+      <a href="zip.html" onclick="" class="button">Start</a>
+    </div>
+  </div>
+	</div>
+</body>
+
+
+
+
+
+
+          <script>
+if(getCookie('username') == ''){alert("You aren't logged in!");window.location.assign("Login.html");}
+document.getElementById('usr').innerHTML = getCookie('username')
+var al = document.getElementById("uploader");
+ var a = document.getElementById("file_upload");
+ al.addEventListener("click", function(e) {
+   if (a) {
+     a.click();
+   }
+   e.preventDefault();
+ }, false);
+ function Chp(file) {
+   var img = document.getElementById('pro');
+   /*var imgType = /^image\//;
+   if (!imgType.test(file[0].type)) {*/
+   localStorage.setItem("Avatar_src", window.URL.createObjectURL(file[0]));
+   document.cookie = "setimg=" + window.URL.createObjectURL(file[0]) + ";"
+   img.src = window.URL.createObjectURL(file[0]);
+   // alert("Success!");
+   /* }else{
+      alert("It needs to be an img extension file!");
+    }*/
+ }
+ setInterval(function() {
+   if (getCookie('setimg') != "") {
+     document.getElementById('pro').src = getCookie('setimg')
+   } else if (getCookie('photo') != "") {
+     document.getElementById('pro').src = getCookie('photo')
+   }
+ }, 1000)
+ function getCookie(cname) {
+   var name = cname + "=";
+   var ca = document.cookie.split(';');
+   for (var i = 0; i < ca.length; i++) {
+     var c = ca[i];
+//if(getCookie('username') == ''){alert("You aren't logged in!");window.location.assign("Login.html");}
+document.getElementById('usr').innerHTML = getCookie('username')
+var al = document.getElementById("uploader");
+ var a = document.getElementById("file_upload");
+ al.addEventListener("click", function(e) {
+   if (a) {
+     a.click();
+   }
+   e.preventDefault();
+ }, false);
+ function Chp(file) {
+   var img = document.getElementById('pro');
+   /*var imgType = /^image\//;
+   if (!imgType.test(file[0].type)) {*/
+   localStorage.setItem("Avatar_src", window.URL.createObjectURL(file[0]));
+   document.cookie = "setimg=" + window.URL.createObjectURL(file[0]) + ";"
+   img.src = window.URL.createObjectURL(file[0]);
+   // alert("Success!");
+   /* }else{
+      alert("It needs to be an img extension file!");
+    }*/
+ }
+ setTimeout(function() {
+   if (getCookie('setimg') != "") {
+     document.getElementById('pro').src = getCookie('setimg')
+   } else if (getCookie('photo') != "") {
+     document.getElementById('pro').src = getCookie('photo')
+   }
+ },2000)
+ function getCookie(cname) {
+   var name = cname + "=";
+   var ca = document.cookie.split(';');
+   for (var i = 0; i < ca.length; i++) {
+     var c = ca[i];
+     while (c.charAt(0) == ' ') {
+       c = c.substring(1);
+     }
+     if (c.indexOf(name) == 0) {
+       return c.substring(name.length, c.length);
+     }
+   }
+   return "";
+ }
+ function collectreward(type) {
+   if (type == "visit") {
+     document.cookie = 'collectreward_visit=true;'
+		 document.cookie = 'bribes='+Number(getCookie('bribes'))+Number('7')
+   }
+   if (type == 'streak') {
+   }
+ }
+ var carryover = false
+ setInterval(function() {
+       if (getCookie('collectreward_visit') == 'true') {
+           document.getElementById('visitreward').style.display = 'none'
+           
+				 }
+       }, 1000)
+			 if(getCookie('bribes')==""){
+			 setTimeout(function(){alert('You have been awarded 10 Dan bribes!')
+			 document.cookie='bribes=10;'
+			 },3000)
+			 }
+			 var target = getCookie('bribes')
+			 var ide = 0
+			 setInterval(function(){
+			 
+			 if(carryover == false){
+			 document.getElementById('bribes').style.width=getCookie('bribes')+'%'
+			 document.getElementById('bribes').innerHTML = getCookie('bribes')
+			 ide++
+			 if(ide > Number(getCookie('bribes'))||ide == Number(getCookie('bribes'))){
+			 carryover = true
+			 }
+			 }
+			 
+			 },500)
+			 setTimeout(doit,15000)
+			 function doit(){
+			 crryover = true
+			 setInterval(function(){
+			 document.getElementById('bribes').style.width=getCookie('bribes')+'%'
+			 document.getElementById('bribes').innerHTML = getCookie('bribes')
+			 },1000)
+}
+setInterval(function(){
+            var d = new Date();
+            var t = d.toLocaleTimeString();
+						var doy = d.getDay()
+						var dfd = ''
+						document.getElementById('award').innerHTML = 7-doy+' days past'
+						document.getElementById('award').style.width = Number(Number(Number(Number(7-doy))/ 7)*100)+'%'//d.getDay()
+						if(doy != 7){
+						dfd = doy
+						} else {
+						dfd = ''
+						
+						}
+					//	document.getElementById('dfd').innerHTML = dfd + ' to go'
+						},1000)
+</script>
+</html>

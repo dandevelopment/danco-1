@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DanSecure</title>
+
+    <style>
+    .button {
+            background-color: cornflowerblue; /* Green */
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 1s;
+            margin: 5px;
+            border-radius: 5px;
+            /*box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);*/
+        }
+    </style>
+  </head>
+  <body stye="font-family:verdana">
+    <h1 style="font:verdana;text-shadow:0px 0px 10px #808080;text-align:center;background-color: cornflowerblue; /* Green */border: none;color: white;float: right;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;transition-duration: 1s;text-align:center;border-radius:5px;box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);">3.9</h1>
+    <p style="font:verdana;text-align:center;padding-left:10%;width:40%"><div style="margin-left:30%;background-color: efefef; /* Green */border: solid;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;transition-duration: 1s;text-align:center;border-radius:5px;box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);">
+    <h1>
+    Crypting
+    </h1>
+    <p>Thank you for using DanSecure, a co production of Dan Security.<br>Hint: press the box you want to get the crypt from, and use the keyboard shortcut: ctrl + a (on mac it's command + a)</p>
+     <div style=""><div onClick="savetodrive();" class="button">Save to drive</div> | <div onClick="savetoemail()" class="button">Save as email</div></div>
+     <div id="saveencrypted"></div><div id="savedecrypted"></div>
+    <div style="background-color:cornflowerblue;color:white;"id="Lbar"><p id="label"></p></div>
+    <div>
+    <input placeholder="Decrypt" type="text" id="decrypt" >
+    <div onclick="decrypt()"class="button">Decrypt</div>
+    <input placeholder="Encrypt" type="text" id="encrypt" >
+    <div onclick="encrypt()" class="button">Encrypt</div><br>
+    <textarea id="decrypted" style="border:solid;margin:20px;padding:10px;width:50%;height:100px;" rows="10" cols="50" readonly>Where decrypted text will appear</textarea><br>
+    <textarea id="encrypted" style="border:solid;margin:20px;padding:10px;width:50%;height:100px;" rows="10" cols="50" readonly>Where encrypted text will appear</textarea>
+    
+    </div>
+    </div><br>
+  
+    <script>
+  
+    function savetodrive() {
+    document.getElementById('saveencrypted').innerHTML = '<div class="button" onclick="saveencryptedtodrive()">Save Encrypted</div>'
+    document.getElementById('savedecrypted').innerHTML = '<div class="button" onclick="savedecryptedtodrive()">Save Decrypted</div>'
+    }
+    function savetoemail(){
+    document.getElementById('saveencrypted').innerHTML = '<div class="button" onclick="saveencryptedtoemail()">Save Encrypted</div>'
+    document.getElementById('savedecrypted').innerHTML = '<div class="button" onclick="savedecryptedtoemail()">Save Decrypted</div>'
+    }
+    
+   
+    
+    
+    
+    
+          var elem = document.getElementById("Lbar");
+  var width = 0;
+  
+  
+  
+  
+  
+      var d3 = ''//d2.replace("a", " 2");
+      var d4 = ''//d3.replace("b", " 3");
+      var d5 = ''//d4.replace("c", " 4");
+      var d6 = ''//d5.replace("d", " 5");
+      var d7 = ''//d6.replace("e", " 6");
+      var d8 = ''//d7.replace("f", " 7");
+      var d9 = ''//d8.replace("g", " 8");
+      var d10 = ''//d9.replace("h", " 9");
+      var d11 = ''//d10.replace("i", " !)");
+      var d12 = ''//d11.replace("j", " !!");
+      var d13 = ''//d12.replace("k", " !@");
+      var d14 = ''//d13.replace("l", " !#");
+      var d15 = ''//d14.replace("m", " !$");
+      var d16 = ''//d15.replace("n", " !%");
+      var d17 = ''//d16.replace("o", " !^");
+      var d18 = ''//d17.replace("p", " !&");
+      var d19 = ''//d18.replace("q", " !*");
+      var d20 = ''//d19.replace("r", " !(");
+      var d21 = ''//d20.replace("s", " @)");
+      var d22 = ''//d21.replace("t", " @!");
+      var d23 = ''//d22.replace("u", " @@");
+      var d24 = ''//d23.replace("v", " @#");
+      var d25 = ''//d24.replace("w", " @$");
+      var d26 = ''//d25.replace("x", " @%");
+      var d27 = ''//d26.replace("y", " @^");
+      var d28 = ''//d27.replace("z", " @&");
+      var done = false
+      var i = 0
+
+
+
+    
+    function encrypt() {
+   //   width = 0;
+                      elem.style.width = 0
+    document.getElementById("label").innerHTML = 0
+      var d = document.getElementById("encrypt").value
+      while(i<9000){
+      i++
+      if(done == true){
+      d2 = d28.replace(" ", "1");
+      }else{
+      d2 = d.replace(" ", "1");
+      done = true
+      }
+          elem.style.width = i/500 + '%'; 
+    document.getElementById("label").innerHTML = i/500 * 1  + '%';
+      d3 = d2.replace("a", " 2");
+      d4 = d3.replace("b", " 3");
+      d5 = d4.replace("c", " 4");
+      d6 = d5.replace("d", " 5");
+      d7 = d6.replace("e", " 6");
+      d8 = d7.replace("f", " 7");
+      d9 = d8.replace("g", " 8");
+      d10 = d9.replace("h", " 9");
+      d11 = d10.replace("i", " !)");
+      d12 = d11.replace("j", " !!");
+      d13 = d12.replace("k", " !@");
+      d14 = d13.replace("l", " !#");
+      d15 = d14.replace("m", " !$");
+      d16 = d15.replace("n", " !%");
+      d17 = d16.replace("o", " !^");
+      d18 = d17.replace("p", " !&");
+      d19 = d18.replace("q", " !*");
+      d20 = d19.replace("r", " !(");
+      d21 = d20.replace("s", " @)");
+      d22 = d21.replace("t", " @!");
+      d23 = d22.replace("u", " @@");
+      d24 = d23.replace("v", " @#");
+      d25 = d24.replace("w", " @$");
+      d26 = d25.replace("x", " @%");
+      d27 = d26.replace("y", " @^");
+      d28 = d27.replace("z", " @&");
+      } 
+      document.getElementById('encrypted').innerHTML = d28
+      d3 = ''//d2.replace("a", " 2");
+      d4 = ''//d3.replace("b", " 3");
+      d5 = ''//d4.replace("c", " 4");
+      d6 = ''//d5.replace("d", " 5");
+      d7 = ''//d6.replace("e", " 6");
+      d8 = ''//d7.replace("f", " 7");
+      d9 = ''//d8.replace("g", " 8");
+      d10 = ''//d9.replace("h", " 9");
+      d11 = ''//d10.replace("i", " !)");
+      d12 = ''//d11.replace("j", " !!");
+      d13 = ''//d12.replace("k", " !@");
+      d14 = ''//d13.replace("l", " !#");
+      d15 = ''//d14.replace("m", " !$");
+      d16 = ''//d15.replace("n", " !%");
+      d17 = ''//d16.replace("o", " !^");
+      d18 = ''//d17.replace("p", " !&");
+      d19 = ''//d18.replace("q", " !*");
+      d20 = ''//d19.replace("r", " !(");
+      d21 = ''//d20.replace("s", " @)");
+      d22 = ''//d21.replace("t", " @!");
+      d23 = ''//d22.replace("u", " @@");
+      d24 = ''//d23.replace("v", " @#");
+      d25 = ''//d24.replace("w", " @$");
+      d26 = ''//d25.replace("x", " @%");
+      d27 = ''//d26.replace("y", " @^");
+      d28 = ''//d27.replace("z", " @&");
+      done = false
+      i = 0
+    }
+    
+    
+    
+    
+    
+    
+    
+    var e3 = ''//e2.replace(" 2", "a");
+      var e4 = ''//e3.replace(" 3", "b");
+      var e5 = ''//e4.replace(" 4", "c");
+      var e6 = ''//e5.replace(" 5", "d");
+      var e7 = ''//e6.replace(" 6", "e");
+      var e8 = ''//e7.replace(" 7", "f");
+      var e9 = ''//e8.replace(" 8", "g");
+      var e10 = ''//e9.replace(" 9", "h");
+      var e11 = ''//e10.replace(" !)", "i");
+      var e12 = ''//e11.replace(" !!", "j");
+      var e13 = ''//e12.replace(" !@", "k");
+      var e14 = ''//e13.replace(" !#", "l");
+      var e15 = ''//e14.replace(" !$", "m");
+      var e16 = ''//e15.replace(" !%", "n");
+      var e17 = ''//e16.replace(" !^", "o");
+      var e18 = ''//e17.replace(" !&", "p");
+      var e19 = ''//e18.replace(" !*", "q");
+      var e20 = ''//e19.replace(" !(", "r");
+      var e21 = ''//e20.replace(" @)", "s");
+      var e22 = ''//e21.replace(" @!", "t");
+      var e23 = ''//e22.replace(" @@", "u");
+      var e24 = ''//e23.replace(" @#", "v");
+      var e25 = ''//e24.replace(" @$", "w");
+      var e26 = ''//e25.replace(" @%", "x");
+      var e27 = ''//e26.replace(" @^", "y");
+      var e28 = ''//e27.replace(" @&", "z");
+      var done2 = false
+      var i2 = 0
+
+    function decrypt() {
+   // width = 0;
+                   elem.style.width = 0
+    document.getElementById("label").innerHTML = 0
+      var e = document.getElementById("decrypt").value
+      while(i2<9000){
+      i2++
+      if(done2 == true){
+      e2 = e28.replace("1", " ")
+      } else {
+      e2 = e.replace("1", " ");
+      done2 = true
+      }
+                elem.style.width = i2/500 + '%'; 
+    document.getElementById("label").innerHTML = i2/500 * 1  + '%';
+       e3 = e2.replace(" 2", "a");
+       e4 = e3.replace(" 3", "b");
+       e5 = e4.replace(" 4", "c");
+       e6 = e5.replace(" 5", "d");
+       e7 = e6.replace(" 6", "e");
+       e8 = e7.replace(" 7", "f");
+       e9 = e8.replace(" 8", "g");
+       e10 = e9.replace(" 9", "h");
+       e11 = e10.replace(" !)", "i");
+       e12 = e11.replace(" !!", "j");
+       e13 = e12.replace(" !@", "k");
+       e14 = e13.replace(" !#", "l");
+       e15 = e14.replace(" !$", "m");
+       e16 = e15.replace(" !%", "n");
+       e17 = e16.replace(" !^", "o");
+       e18 = e17.replace(" !&", "p");
+       e19 = e18.replace(" !*", "q");
+       e20 = e19.replace(" !(", "r");
+       e21 = e20.replace(" @)", "s");
+       e22 = e21.replace(" @!", "t");
+       e23 = e22.replace(" @@", "u");
+       e24 = e23.replace(" @#", "v");
+       e25 = e24.replace(" @$", "w");
+       e26 = e25.replace(" @%", "x");
+       e27 = e26.replace(" @^", "y");
+       e28 = e27.replace(" @&", "z");
+       }
+             document.getElementById('decrypted').innerHTML = e28
+           e3 = ''//e2.replace(" 2", "a");
+      e4 = ''//e3.replace(" 3", "b");
+      e5 = ''//e4.replace(" 4", "c");
+      e6 = ''//e5.replace(" 5", "d");
+      e7 = ''//e6.replace(" 6", "e");
+      e8 = ''//e7.replace(" 7", "f");
+      e9 = ''//e8.replace(" 8", "g");
+      e10 = ''//e9.replace(" 9", "h");
+      e11 = ''//e10.replace(" !)", "i");
+      e12 = ''//e11.replace(" !!", "j");
+      e13 = ''//e12.replace(" !@", "k");
+      e14 = ''//e13.replace(" !#", "l");
+      e15 = ''//e14.replace(" !$", "m");
+      e16 = ''//e15.replace(" !%", "n");
+      e17 = ''//e16.replace(" !^", "o");
+      e18 = ''//e17.replace(" !&", "p");
+      e19 = ''//e18.replace(" !*", "q");
+      e20 = ''//e19.replace(" !(", "r");
+      e21 = ''//e20.replace(" @)", "s");
+      e22 = ''//e21.replace(" @!", "t");
+      e23 = ''//e22.replace(" @@", "u");
+      e24 = ''//e23.replace(" @#", "v");
+      e25 = ''//e24.replace(" @$", "w");
+      e26 = ''//e25.replace(" @%", "x");
+      e27 = ''//e26.replace(" @^", "y");
+      e28 = ''//e27.replace(" @&", "z");
+      done2 = false
+      i2 = 0
+    }
+
+    </script>
+    <script></script>
+  </body>
+</html>
+
+

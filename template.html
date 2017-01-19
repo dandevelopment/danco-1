@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dan Enterprises - Home</title>
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
+    <style>
+        .titla {
+            background-color: #0094ff;
+            color: white;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            padding: 10px;
+            font-size: large;
+            width: 100%;
+            font-family: 'Trebuchet MS';
+            height:55px;
+        }
+
+        .stitla {
+            background-color: #ffffff;
+            color: grey;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            padding: 10px;
+            font-size: medium;
+            width: 30%;
+            border-bottom-right-radius: 10px;
+        }
+
+        canvas {
+            border: 1px solid #d3d3d3;
+            background-color: #f1f1f1;
+        }
+
+        .mainI {
+            float: left;
+            width: 30%;
+            box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2), 0 6px 6px 0 rgba(0,0,0,0.19);
+            //background-color: rgba(211, 211, 211, 0.20);
+            background-color:rgba(255, 255, 255, 0.83);
+            margin: 16px;
+            height: 250px;
+            color: white;
+            transition-duration: 1s;
+            display:inline-block;
+           // filter:blur(7px);
+        }
+
+            .mainI:hover {
+                box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0,0,0,0.19);
+                //background-color: rgba(211, 211, 211, 0.63);
+                background-color:rgba(211, 211, 211, 0.74);
+            }
+        .bodyI {
+            background-color: #0088ea;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            font-weight: 700;
+            //height:500px;
+        }
+
+        .tI {
+            padding: 10px;
+            color: black;
+        }
+
+        .button {
+            background-color: cornflowerblue; /* Green */
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 1s;
+            margin: 5px;
+            border-radius: 5px;
+            /*box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);*/
+        }
+
+        .button1 {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+
+        .button:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+            color: dodgerblue;
+            background-color: white;
+            padding: 15px;
+        }
+        .pagee{
+            background-color:white;
+            width:70%;
+            margin-left:15%;
+            margin-right:15%;
+            
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        .menuButton {
+            height:100%;
+            width:20%;
+            background-color:cornflowerblue;
+            transition-duration:0.5s;
+            display: inline-block;
+        }
+        .menuButton:hover{
+            background-color:#0088ea;
+        }
+/*scrollbar*/
+::-webkit-scrollbar {
+    /*body*/
+    width: 30px;
+}
+ 
+::-webkit-scrollbar-track {
+    /*track*/
+    background-color:rgba(0,0,0,0);
+    
+    /*border-radius: 10px;*/
+    
+}
+ 
+::-webkit-scrollbar-thumb {
+    /*drag*/
+    //border-radius: 10px;
+    background-repeat: no-repeat;
+    background-image:url(https://sites.google.com/a/lca.edu/haskins/home/3754.png);
+}
+/* {
+    float: left;
+    text-shadow:0px 0px 10px #333;
+}*/
+
+.ly a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    //background-color:rgba(0, 148, 255, 0.80)
+}
+
+.ly a:hover:not(.active) {
+    background-color: #0088ea;
+    transition-duration:1s;
+    text-shadow:0px 0px 10px #333;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    color:white;
+}
+
+.active {
+    float: left;
+    transition-duration:1s;
+    background-color: #1377d8;
+}
+.menutop {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    //background: linear-gradient(lightgray, rgba(255, 255, 255, 0.50));
+    background-color:rgba(103, 169, 217, 0.0);
+   // box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border:none;
+    //height:100px;
+   // border-bottom:solid;
+    border-color:white;
+   // position:absolute;
+   left:0;
+}
+.notActive{
+    background-color:rgba(0, 148, 255, 0.80)
+}
+
+    </style>
+</head>
+<body onload="" style="font-family:Verdana;background-image:url(http://nicecastles.xyz/wp-content/uploads/2016/03/how-to-build-a-real-castle-tower.jpg);">
+    <iframe height="100" width="100" src="bar.html" class="menutop" id="menutop">
+    <ul class="menutop" >
+        <!--style="box-shadow:0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"-->
+        <li class="ly"><a><img src="http://domenicosottosanti.altervista.org/images/logo.jpg" width="50"height="50"></a></li>
+        <li class="ly"><a class="active" href="Home">Home</a></li>
+        <li class="ly"><a class="notActive" href="#news">News</a></li>
+        <li class="ly"><a class="notActive" href="#contact">Contact</a></li>
+        <li class="ly"><a class="notActive" href="#about">About</a></li>
+        <li style="width:100%;text-decoration:none;border-color:black;margin-top:10px;margin-bottom:0px;float:left;margin-left:100px;border:solid;border-radius:3px;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);background-color:rgba(255, 255, 255, 0.55);width:43%"><marquee>Thank's for visiting Daniel.com  &copy;&reg;Dan co.  Tip: Logging in is recommended.   Feeling bored? Play a game!  </marquee></li>
+        <!--<li class="ly"><button id="btn2" class="button">Close Menu Bar</button></li>-->
+        <li class="ly"><a class="button"style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Login" onclick="//Login()">Log In</a></li>
+        <li class="ly"><a class="button" style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Signup" onclick="//Login()">Sign Up</a></li>
+    </ul>
+        </iframe>
+    <div class="ly"><button id="btn2" class="button" style="position:fixed;top:0;right:0;margin-right:15%;">Close Menu Bar</button></div>
+    <button id="btn1" class="button" style="position: fixed;top:0;right:0;">Open Menu Bar</button>
+    <div class="pagee" style="background-color:white;height:1000px;margin-top:150px;margin-bottom:30px;padding:50px" id="teest">    
+    
+    
+    
+    
+     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        function Dterms() {
+
+         //   var Dwindow = window.open("", "MsgWindow", "width=1000,height=1000")
+        //    Dwindow.document.write('<p>ERROR</p>')
+        //    Dwindow.document.location.href = 'Theatre.html'
+        }
+        function Cterms() {
+
+         //   var Dwindow = window.open("", "MsgWindow", "width=1000,height=1000")
+         //   Dwindow.document.write('<p>ERROR</p>')
+         //   Dwindow.document.location.href = 'Apps.html'
+        }
+        function Games() {
+
+        //    var Dwindow = window.open("", "MsgWindow", "width=1000,height=1000")
+         //   Dwindow.document.write('<p>ERROR</p>')
+         //   Dwindow.document.location.href = 'Games.html'
+        }
+        function Login() {
+
+            var Dwindow = window.open("", "MsgWindow", "width=1000,height=1000")
+            Dwindow.document.write('<p>ERROR</p>')
+            Dwindow.document.location.href = 'login'
+        }
+        var myVar = setInterval(function () { myTimer() }, 1000);
+
+        function myTimer() {
+            var d = new Date();
+            var t = d.toLocaleTimeString();
+            //document.getElementById("demoee").innerHTML = t;
+        }
+
+        function myStopFunction() {
+            clearInterval(myVar);
+        }
+   //     coooke();
+        //     function coooke() {
+       
+        //alert('test')
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+       // document.getElementById("demoee").innerHTML = 't';
+       // alert(getCookie('username'));
+        function checkCookie() {
+           // alert('testt')
+            var username = getCookie("username");
+            if (username != "") {
+                $("#loginsidebar").animate({ width: "10px" });
+                $("#loginsidebar").animate({ height: "0px" });
+                $("#loginsidebar").animate({ width: "0px" });
+              //  alert("Welcome again " + username);
+            } else {
+              //  username = prompt("Please enter your name:", "");
+              //  if (username != "" && username != null) {
+                 //   setCookie("username", username, 365);
+              //  }
+            }
+        }
+        checkCookie();
+   //     }
+        // function closelogin() {
+        /*
+        setTimeout("setNotification();", 1);
+        function setNotification() {
+            var n
+            if (window.webkitNotifications.checkPermission() != 0) {
+                setNotification();
+                return false;
+            }
+            n = window.webkitNotifications.createHTMLNotification('http://www.your-notification-address.com');
+            n.show();
+        }*/
+        //    }
+    </script>
+    <script>
+        $("#btn1").fadeOut();
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#menutop").animate({ height: "10px" });
+                $("#menutop").animate({ width: "100%" });
+                $("#menutop").animate({ height: "100px" });
+                $("#btn1").fadeOut();
+                $("#btn2").fadeIn();
+            });
+            $("#btn2").click(function () {
+                $("#menutop").animate({ height: "10px" });
+                $("#menutop").animate({ width: "0px" });
+                $("#menutop").animate({ height: "0px" });
+                $("#btn2").fadeOut();
+                $("#btn1").fadeIn();
+            });
+        });
+        $(document).ready(function () {
+            $("#closlogb").click(function () {
+                $("#loginsidebar").animate({ width: "10px" });
+                $("#loginsidebar").animate({ height: "0px" });
+                $("#loginsidebar").animate({ width: "0px" });
+
+            });
+        })
+    </script>
+</body>
+</html>

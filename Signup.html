@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dan Enterprises Signup</title>
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
+    <style>
+                .titla {
+                    background-color: #0094ff;
+                    color: white;
+                    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+                    padding: 10px;
+                    font-size: large;
+                    width: 100%;
+                    font-family: 'Trebuchet MS';
+                    height: 55px;
+                }
+
+                .stitla {
+                    background-color: #ffffff;
+                    color: grey;
+                    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+                    padding: 10px;
+                    font-size: medium;
+                    width: 30%;
+                    border-bottom-right-radius: 10px;
+                }
+
+                canvas {
+                    border: 1px solid #d3d3d3;
+                    background-color: #f1f1f1;
+                }
+
+                .mainI {
+                    float: left;
+                    width: 30%;
+                    box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2), 0 6px 6px 0 rgba(0,0,0,0.19);
+                    //background-color: rgba(211, 211, 211, 0.20);
+                    background-color: rgba(255, 255, 255, 0.83);
+                    margin: 16px;
+                    height: 250px;
+                    color: white;
+                    transition-duration: 1s;
+                    display: inline-block;
+                    // filter:blur(7px);
+                }
+
+                    .mainI:hover {
+                        box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0,0,0,0.19);
+                        //background-color: rgba(211, 211, 211, 0.63);
+                        background-color: rgba(211, 211, 211, 0.74);
+                    }
+
+                .bodyI {
+                    background-color: #0088ea;
+                    border-radius: 5px;
+                    margin: 10px;
+                    padding: 10px;
+                    font-weight: 700;
+                    //height:500px;
+                }
+
+                .tI {
+                    padding: 10px;
+                    color: black;
+                }
+
+                .button {
+                    background-color: cornflowerblue; /* Green */
+                    border: none;
+                    color: white;
+                    padding: 5px 10px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    transition-duration: 1s;
+                    margin: 5px;
+                    border-radius: 5px;
+                    /*box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);*/
+                }
+
+                .button1 {
+                    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+                }
+
+                .button:hover {
+                    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                    color: dodgerblue;
+                    background-color: white;
+                    padding: 15px;
+                }
+
+                .pagee {
+                    background-color: white;
+                    width: 70%;
+                    margin-left: 15%;
+                    margin-right: 15%;
+                    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                }
+
+                .menuButton {
+                    height: 100%;
+                    width: 20%;
+                    background-color: cornflowerblue;
+                    transition-duration: 0.5s;
+                    display: inline-block;
+                }
+
+                    .menuButton:hover {
+                        background-color: #0088ea;
+                    }
+                /* {
+            float: left;
+            text-shadow:0px 0px 10px #333;
+        }*/
+
+                .ly a {
+                    float: left;
+                    display: block;
+                    color: white;
+                    text-align: center;
+                    padding: 14px 16px;
+                    text-decoration: none;
+                    //background-color:rgba(0, 148, 255, 0.80);
+                }
+
+                    .ly a:hover:not(.active) {
+                        background-color: #0088ea;
+                        transition-duration: 1s;
+                        text-shadow: 0px 0px 10px #333;
+                        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+                        color: white;
+                    }
+
+                .active {
+                    float: left;
+                    transition-duration: 1s;
+                    background-color: #1377d8;
+                }
+
+.menutop {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    //background: linear-gradient(lightgray, rgba(255, 255, 255, 0.50));
+    background-color:rgba(103, 169, 217, 0.0);
+   // box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border:none;
+    //height:100px;
+   // border-bottom:solid;
+    border-color:white;
+   // position:absolute;
+   left:0;
+}
+.notActive{
+    background-color:rgba(0, 148, 255, 0.80)
+}
+#myProgress {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  background-color: #ddd;
+}
+
+#myBar {
+  position: absolute;
+  width: 10%;
+  height: 100%;
+  background-color: #4CAF50;
+}
+
+#label {
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
+    </style>
+    <meta name="google-signin-client_id" content="257180149912-7jsbuc0e22qnrpg681cthd7bqm2hn8lr.apps.googleusercontent.com">
+</head>
+<body onload="" style="font-family:Verdana;background-image:url(http://nicecastles.xyz/wp-content/uploads/2016/03/how-to-build-a-real-castle-tower.jpg);">
+    <iframe height="100" width="100" src="bar.html" class="menutop" id="menutop">
+    <ul class="menutop" >
+        <!--style="box-shadow:0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"-->
+        <li class="ly"><a><img src="http://domenicosottosanti.altervista.org/images/logo.jpg" width="50"height="50"></a></li>
+        <li class="ly"><a class="active" href="Home">Home</a></li>
+        <li class="ly"><a class="notActive" href="#news">News</a></li>
+        <li class="ly"><a class="notActive" href="#contact">Contact</a></li>
+        <li class="ly"><a class="notActive" href="#about">About</a></li>
+        <li style="width:100%;text-decoration:none;border-color:black;margin-top:10px;margin-bottom:0px;float:left;margin-left:100px;border:solid;border-radius:3px;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);background-color:rgba(255, 255, 255, 0.55);width:43%"><marquee>Thank's for visiting Daniel.com  &copy;&reg;Dan co.  Tip: Logging in is recommended.   Feeling bored? Play a game!  </marquee></li>
+        <!--<li class="ly"><button id="btn2" class="button">Close Menu Bar</button></li>-->
+        <li class="ly"><a class="button"style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Login" onclick="//Login()">Log In</a></li>
+        <li class="ly"><a class="button" style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Signup" onclick="//Login()">Sign Up</a></li>
+    </ul>
+        </iframe>
+    <div class="ly"><button id="btn2" class="button" style="position:fixed;top:0;right:0;margin-right:230px;">Close Menu Bar</button></div>
+    <button id="btn1" class="button" style="position: fixed;top:0;right:0;">Open Menu Bar</button>
+    <!--<div id="loginsidebar" style="position: fixed;bottom:0;left:0;background-color:rgba(255, 255, 255, 0.92);list-style-type: none;margin: 0;padding: 0;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);overflow: hidden;"><div><button id="closlogb" class="button">Close</button></div> <iframe src="Login.php" height="200" width="300"></iframe></div>-->
+    <div class="pagee" style="background-color:white;height:750px;margin-top:150px" id="teest">
+        <h1 style="padding:50px;padding-bottom:10px;color:#0088ea">Sign Up Below</h1>
+        <div id="loginsidebar" style="background-color:rgba(255, 255, 255, 0.92) ;overflow: hidden;padding:50px;padding-top:10px;">
+            <div><button id="closlogb" class="button">Close</button></div>
+               <script src="https://apis.google.com/js/platform.js" async defer></script>
+ <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <p id="confi"style="color:green"></p>
+            <script>     function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail());
+       document.cookie = "username="+profile.getName()
+       document.cookie = "photo="+profile.getImageUrl()
+       document.cookie = "email="+profile.getEmail()
+       document.cookie = "signedintogoogle=true"
+                    document.getElementById('confi').innerHTML = 'Sign Up succesfull. Auto signing you in...<br><div id="myProgress"><div id="myBar"><div id="label">10%</div></div></div>'
+setTimeout(function(){ move()}, 1000);
+}
+                function move() {
+  var elem = document.getElementById("myBar");   
+  var width = 0;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+      document.getElementById("label").innerHTML = width * 1  + '%';
+    }
+  }
+}
+                
+                function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+        var passl = 'false';
+        
+        if(getCookie('username') != ""){document.getElementById('areab').innerHTML += '<p style="">The Dan servers have detected you may be logged in already.</p>'}
+        function loginbb() {
+            if (document.getElementById('Username').value == 'Jeff' && document.getElementById('Password').value == 'jun') { passl = 'true' }
+            if (document.getElementById('Username').value == 'Lane' && document.getElementById('Password').value == 'bel') { passl = 'true' }
+            if (document.getElementById('Username').value == 'Jim' && document.getElementById('Password').value == 'jin') { passl = 'true' }
+            if (document.getElementById('Username').value == 'Dan' && document.getElementById('Password').value == 'che') { passl = 'true' }
+            if (document.getElementById('Username').value == 'Tob' && document.getElementById('Password').value == 'fre') { passl = 'true' }
+            if (document.getElementById('Username').value == 'Dan' && document.getElementById('Password').value == 'bas') { passl = 'true' }
+            if (document.getElementById('Username').value == 'Jon' && document.getElementById('Password').value == 'gur') { passl = 'true' }
+            if (document.getElementById('Username').value == 'Brian' && document.getElementById('Password').value == 'ben') { passl = 'true' }
+            if (document.getElementById('Username').value == 'Sam' && document.getElementById('Password').value == 'hon') { passl = 'true' }
+            if (document.getElementById('Username').value == 'Pj' && document.getElementById('Password').value == 'gri') { passl = 'true' }
+          if (document.getElementById('Username').value == 'Trey' && document.getElementById('Password').value == 'bas') { passl = 'true' }
+          if(passl == 'true'){
+            document.cookie = "username="+document.getElementById('Username').value+";";
+            document.cookie = "password="+document.getElementById('Password').value+";";
+            document.cookie = "photo="+";";
+            document.getElementById('prm').innerHTML = '<div style="color:green">Successfully Logged In. You can now proceed to the dashboard by pressing <div class="ly"><a class="button"style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Dashboard.html"target="_blank" onclick="//Login()">Dan Dashboard</a></div> </div>'
+                new Notification("logged in", {
+        icon: 'favicon.ico',
+        body: 'Successfully Logged In'
+    });
+            passl = 'false';
+            } else { 
+ document.getElementById('prm').innerHTML = 'The username or password is incorrect. Please <div class="ly"><a style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" class="button" href="https://mail.google.com/mail/u/0/#inbox"target="_blank">Contact Dan</a></div> if you think this is an error.' 
+                   }
+        }</script>
+            <!--<p style="color:green">SIGNUP IS READY! click the button above, to sign in with your google acount.</p>-->
+           <!-- Sorry, Sign up is currently unavalable, due to domain network issues. <a id="tec"class="button" target="_blank" onclick="showin()">Show technichal information</a>
+           --> <div id="info"style="width:70%;height:1000px;padding:30px;"></div>
+             <!--<iframe src="#signup.php" height="230" width="500" style="float:left" scrolling="no"frameborder="0"></iframe>
+            <iframe src=""height="320" width="500" style="float:left" scrolling="no"frameborder="0"></iframe> -->
+        </div>
+        <button id="opnlogb" class="button">Open</button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+    function showin() {
+      document.getElementById('info').innerHTML = '<iframe src="technical_information.txt" height="3000" width="700" style="float:left;width:100%height:100%;" scrolling="no"frameborder="0"></iframe>'
+      
+    }
+        function Dterms() {
+
+            var Dwindow = window.open("", "MsgWindow", "width=1000,height=1000")
+            Dwindow.document.write('<p>ERROR</p>')
+            Dwindow.document.location.href = 'Theatre.html'
+        }
+        function Cterms() {
+
+            var Dwindow = window.open("", "MsgWindow", "width=1000,height=1000")
+            Dwindow.document.write('<p>ERROR</p>')
+            Dwindow.document.location.href = 'Apps.html'
+        }
+        function Games() {
+
+            var Dwindow = window.open("", "MsgWindow", "width=1000,height=1000")
+            Dwindow.document.write('<p>ERROR</p>')
+            Dwindow.document.location.href = 'Games.html'
+        }
+        function Login() {
+
+            var Dwindow = window.open("", "MsgWindow", "width=1000,height=1000")
+            Dwindow.document.write('<p>ERROR</p>')
+            Dwindow.document.location.href = 'login'
+        }
+        // function closelogin() {
+
+        //    }
+    </script>
+    <script>
+        $("#btn1").fadeOut();
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#menutop").animate({ height: "10px" });
+                $("#menutop").animate({ width: "100%" });
+                $("#menutop").animate({ height: "100px" });
+                $("#btn1").fadeOut();
+                $("#btn2").fadeIn();
+            });
+            $("#btn2").click(function () {
+                $("#menutop").animate({ height: "10px" });
+                $("#menutop").animate({ width: "0px" });
+                $("#menutop").animate({ height: "0px" });
+                $("#btn2").fadeOut();
+                $("#btn1").fadeIn();
+            });
+        });
+        $("#opnlogb").fadeOut();
+        $(document).ready(function () {
+            $("#closlogb").click(function () {
+                $("#loginsidebar").animate({ width: "10px" });
+                $("#loginsidebar").animate({ height: "0px" });
+                $("#loginsidebar").animate({ width: "0px" });
+                $("#closlogb").fadeOut();
+                $("#opnlogb").fadeIn();
+            });
+        })
+        $(document).ready(function () {
+            $("#opnlogb").click(function () {
+                $("#loginsidebar").animate({ height: "10px" });
+                $("#loginsidebar").animate({ width: "300px" });
+                $("#loginsidebar").animate({ height: "300px" });
+                $("#opnlogb").fadeOut();
+                $("#closlogb").fadeIn();
+            });
+        })
+    </script>
+</body>
+</html>

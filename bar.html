@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dan Enterprises - Home</title>
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
+    <style>
+        .titla {
+            background-color: #0094ff;
+            color: white;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            padding: 10px;
+            font-size: large;
+            width: 100%;
+            font-family: 'Trebuchet MS';
+            height:55px;
+        }
+
+        .stitla {
+            background-color: #ffffff;
+            color: grey;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            padding: 10px;
+            font-size: medium;
+            width: 30%;
+            border-bottom-right-radius: 10px;
+        }
+
+        canvas {
+            border: 1px solid #d3d3d3;
+            background-color: #f1f1f1;
+        }
+
+        .mainI {
+            float: left;
+            width: 30%;
+            box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2), 0 6px 6px 0 rgba(0,0,0,0.19);
+            //background-color: rgba(211, 211, 211, 0.20);
+            background-color:rgba(255, 255, 255, 0.83);
+            margin: 16px;
+            height: 250px;
+            color: white;
+            transition-duration: 1s;
+            display:inline-block;
+           // filter:blur(7px);
+        }
+
+            .mainI:hover {
+                box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0,0,0,0.19);
+                //background-color: rgba(211, 211, 211, 0.63);
+                background-color:rgba(211, 211, 211, 0.74);
+            }
+        .bodyI {
+            background-color: #0088ea;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            font-weight: 700;
+            //height:500px;
+        }
+
+        .tI {
+            padding: 10px;
+            color: black;
+        }
+
+        .button {
+            background-color: cornflowerblue; /* Green */
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 1s;
+            margin: 5px;
+            border-radius: 5px;
+            /*box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);*/
+        }
+
+        .button1 {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+
+        .button:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+            color: dodgerblue;
+            background-color: white;
+            padding: 15px;
+        }
+        .pagee{
+            background-color:white;
+            width:70%;
+            margin-left:15%;
+            margin-right:15%;
+            
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        .menuButton {
+            height:100%;
+            width:20%;
+            background-color:cornflowerblue;
+            transition-duration:0.5s;
+            display: inline-block;
+        }
+        .menuButton:hover{
+            background-color:#0088ea;
+        }
+/* {
+    float: left;
+    text-shadow:0px 0px 10px #333;
+}*/
+
+.ly a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    //background-color:rgba(0, 148, 255, 0.80)
+}
+
+.ly a:hover:not(.active) {
+    background-color: #0088ea;
+    transition-duration:1s;
+    text-shadow:0px 0px 10px #333;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    color:white;
+}
+
+.active {
+    float: left;
+    transition-duration:1s;
+    background-color: #1377d8;
+}
+.menutop {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    //background: linear-gradient(lightgray, rgba(255, 255, 255, 0.50));
+    background-color:rgba(103, 169, 217, 0.76);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-bottom:solid;
+    border-color:white;
+   // position:absolute;
+   left:0;
+}
+.notActive{
+    background-color:rgba(0, 148, 255, 0.80)
+}
+
+    </style>
+</head>
+<body onload="" style="font-family:Verdana;//background-image:url(http://nicecastles.xyz/wp-content/uploads/2016/03/how-to-build-a-real-castle-tower.jpg);">
+    <ul class="menutop" id="menutop" >
+        <!--style="box-shadow:0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"-->
+        <li class="ly"><a target="_blank" href="index.html"><img src="http://domenicosottosanti.altervista.org/images/logo.jpg" width="50"height="50"></a></li>
+        <li class="ly"><a class="active" href="index.html" target="_blank">Home</a></li>
+        <li class="ly"><a class="notActive" href="Games.html" target="_blank">Games</a></li>
+        <li class="ly"><a class="notActive" href="https://mail.google.com/mail/u/0/#inbox" target="_blank">Contact</a></li>
+        <li class="ly"><a class="notActive" href="Theatre.html" target="_blank">Videos</a></li>
+        <li style="width:100%;text-decoration:none;border-color:black;margin-top:10px;margin-bottom:0px;float:left;margin-left:20px;margin-right:100px;border:solid;border-radius:3px;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);background-color:rgba(255, 255, 255, 0.55);width:30%"><marquee><span>Thanks for visiting Daniel.com </span><!--<iframe width="100"height="100"style="width:500px;height:30px;border:none;margin:0px;padding:0px;"scrolling="no" src="Datephp.php"></iframe>--> <span style="color:rgba(0, 0, 0, 0.00)">fjksdffffffffdddbfbdfffffffffdddbfbdfjfhskdjfkdjsh</span> &copy;&reg; Dan co. <span style="color:rgba(0, 0, 0, 0.00)">fjksdjffffffffddffffffffdddbfbdfdbfbdffhskdjfkdjsh</span> Tip: Logging in is recommended. <span style="color:rgba(0, 0, 0, 0.00)">fjksdjfhskdjdffffffffdddbfbffffffffdddbfbdfdfkdjsh</span>  Feeling bored? Play a game!  </marquee></li>
+        <!--<li class="ly"><button id="btn2" class="button">Close Menu Bar</button></li>-->
+        <li id="logn">
+        <div class="ly"><a class="button"style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Login.html"target="_blank" onclick="//Login()">Log In</a></div>
+        <div class="ly"><a class="button" style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Signup.html"target="_blank" onclick="//Login()">Sign Up</a></div>
+        </li>
+   </ul>
+    <div style="border:thin;background-color:rgba(255, 255, 255, 0.80);padding:9px;display:inline-block;top:0;right:0;margin-top:40px;margin-right:9px;position:fixed;/*border-right-color:#eaeaea;*/" id="demoeee">Not Logged In.</div>
+    <script>
+        window.onmessage = function(e){
+    if (e.data == 'hello') {
+    //    alert('It works!');
+    }
+};
+
+     //   setInterval(function(){
+  //      if(getCookie('page')=='https://dictatordan.github.io/danco/index.html'){
+   //        alert('worked')
+    //       } else {
+     //      alert(getCookie('page'))
+    //       }
+     //   },1000)
+     //   alert('test')
+       // $("#btn1").fadeOut();
+        //  alert('tess')/*
+        /*
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#menutop").animate({ height: "10px" });
+                $("#menutop").animate({ width: "100%" });
+                $("#menutop").animate({ height: "100px" });
+                $("#btn1").fadeOut();
+                $("#btn2").fadeIn();
+            });
+            $("#btn2").click(function () {
+                $("#menutop").animate({ height: "10px" });
+                $("#menutop").animate({ width: "0px" });
+                $("#menutop").animate({ height: "0px" });
+                $("#btn2").fadeOut();
+                $("#btn1").fadeIn();
+            });
+        });
+        $(document).ready(function () {
+            $("#closlogb").click(function () {
+                $("#loginsidebar").animate({ width: "10px" });
+                $("#loginsidebar").animate({ height: "0px" });
+                $("#loginsidebar").animate({ width: "0px" });
+
+            });
+        });*/
+       // alert('tess')
+      //  var myVar = setInterval(function () { myTimer() }, 1000);
+
+  //      function myTimer() {
+    //        var d = new Date();
+     //       var t = d.toLocaleTimeString();
+      //      document.getElementById("demodd").innerHTML = t;
+       // }
+       
+     //   function myStopFunction() {
+     //       clearInterval(myVar);
+      //  }
+        // document.getElementById('demoeed').innerHTML = 'Welcome, ' //+ rusername;
+        //alert('tess')
+        var rusername2 = getCookie("username");
+        var rusername = getCookie("username");
+        var myVardo = setInterval(function () { checkusernameth() }, 1000);
+function checkusernameth() {
+     rusername2 = getCookie("username");
+    if (rusername2 != "") {
+                document.getElementById("demoeee").innerHTML = 'Logged in as: ' + rusername2;
+                document.getElementById("logn").innerHTML = '<div class="ly"><a class="button"style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Dashboard.html" target="_blank" onclick="//Login()">Dan Dashboard</a></div>';
+    } else {
+    document.getElementById("demoeee").innerHTML = 'Not Logged in.'
+        document.getElementById("logn").innerHTML = '<div class="ly"><a class="button"style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Login.html"target="_blank" onclick="//Login()">Log In</a></div><div class="ly"><a class="button" style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Signup.html"target="_blank" onclick="//Login()">Sign Up</a></div>'
+    }
+}
+        
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+      //  alert(
+        if(top.location.href == 'https://dictatordan.github.io/danco/index.html' || top.location.href == 'https://dictatordan.github.io/danco/' || top.location.href == 'https://dictatordan.github.io//danco/index.html' || top.location.href == 'https://dictatordan.github.io/danco//'){
+        document.getElementById('menutop').style.border = 'none'
+            document.getElementById('menutop').style.background = 'linear-gradient(rgba(103, 169, 217, 0.76), rgba(0,0,0,0))';
+        }
+       
+        var ti = window.parent.document.title
+        var hj = ''
+        console.log(ti)
+        setInterval(function(){
+        if(ti != window.parent.document.title){
+           window.parent.document.title=ti
+            console.log('TI: '+window.parent.document.title)
+           } else {
+             hj =  Math.floor(Math.random()*10)
+               console.log('RANDOM: '+hj)
+               if(hj == 1){
+           window.parent.document.title = "Dan is watching 👀"
+                  }
+                  if(hj == 2){
+           window.parent.document.title = "Hi "+getCookie('username')
+                  }
+               if(hj == 3){
+           window.parent.document.title = "Having fun?"
+                  }
+                  if(hj == 4){
+           window.parent.document.title = "Play a game!!"
+                  }
+               if(hj == 5){
+           window.parent.document.title = "Are you logged in?"
+                  }
+                  if(hj == 6){
+           window.parent.document.title = "Hmmmmmm..."
+                  }
+               if(hj == 7){
+           window.parent.document.title = "Are these tooltips entertaining?"
+                  }
+                  if(hj == 8){
+           window.parent.document.title = "How big is your tab?"
+                  }
+               if(hj == 9){
+           window.parent.document.title = "I wonder..."
+                  }
+               console.log('TITLE: '+top.title)
+           }
+        
+        
+        },4000)
+      //  )
+       
+ 
+        //document.getElementById('demoeee').innerHTML = 'Welcome, '// + rusername;
+        // alert(getCookie('username'));
+        function checkCookie() {
+            // alert('testt')
+           
+            if (rusername != "") {
+                document.getElementById("demoeee").innerHTML = 'Logged in as: ' + rusername;
+                document.getElementById("logn").innerHTML = '<div class="ly"><a class="button"style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Dashboard.html"target="_blank" onclick="//Login()">Dan Dashboard</a></div>';
+                //alert(rusername)
+                //  alert("Welcome again " + username);
+                    new Notification("Welcome, "+rusername, {
+        icon: 'favicon.ico',
+        body: 'Logged In as '+rusername
+    });
+            } else {
+                    new Notification("Welcome", {
+        icon: 'favicon.ico',
+        body: 'Welcome, become a member of Dan co by Logging in. To create an account, contact Dan.'
+    });
+                //  username = prompt("Please enter your name:", "");
+                //  if (username != "" && username != null) {
+                //   setCookie("username", username, 365);
+                //  }
+               // document.getElementById('demoeed').innerHTML = 'Welcome, ' + rusername;
+            }
+        }
+        checkCookie();
+            //    chrome.runtime.onStartup.addListener(checkCookie())
+       // if(getCookie('bh') != ''){
+        var d = new Date();
+var year = d.getFullYear();//2017
+        var months = ["January","February","March","April","May","June","July","August","September","October",'November','December'];
+        var month = months[d.getMonth()];
+        var day = d.getUTCDate();
+        var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        var dayweek = days[d.getDay()];
+        var time = d.toLocaleTimeString();
+        var fulltime = year+', '+month+' '+day+', '+dayweek+' '+time;
+        document.cookie = 'bh='+getCookie('bh')+ fulltime +' > '+top.location.href+'|;'
+        //} //else {
+        
+      //  }
+    </script>
+</body>
+</html>

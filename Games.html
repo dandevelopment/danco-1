@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base target="_top">
+    <title>Dan Enterprises - Games</title>
+    <style>
+        canvas {
+            border: 1px solid #d3d3d3;
+            background-image: url(http://www.avandentertainment.com/wp-content/themes/theme/img/assets/bg/halftone.png);
+        }
+
+        .button {
+            background-color: cornflowerblue; /* Green */
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 1s;
+            margin: 5px;
+            border-radius: 5px;
+            /*box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);*/
+        }
+
+        .button1 {
+            transition-duration: 0.2s;
+            padding: 10px;
+            color: white;
+            background-color: cornflowerblue;
+           // display: inline-block;
+            border: none;
+            margin:5px;
+        }
+
+            .button1:active {
+                box-shadow: 0 20px 20px 0 rgba(0,0,0,0.20), 0 20px 20px 0 rgba(0,0,0,0.20);
+            }
+
+            .button1:hover {
+                border-radius: 10px;
+            }
+
+        .button:hover {
+            background-color: white;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+            color: dodgerblue;
+        }
+
+        .game {
+            background-color: #eaeaea;
+            color: white;
+         //   display: inline-block;
+         //   padding: 50px;
+           // width:90%;
+        }/*
+                    background-color: #0094ff;
+            color: white;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            padding: 10px;
+            font-size: large;
+            width: 100%;
+            font-family: 'Trebuchet MS';
+            height:55px;
+        }*/
+
+        .stitla {
+            background-color: #ffffff;
+            color: grey;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            padding: 10px;
+            font-size: medium;
+            width: 30%;
+            border-bottom-right-radius: 10px;
+        }
+
+        canvas {
+            border: 1px solid #d3d3d3;
+            background-color: #f1f1f1;
+        }
+
+        .mainI {
+            float: left;
+            width: 200px;
+            //box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2), 0 6px 6px 0 rgba(0,0,0,0.19);
+            //background-color: rgba(211, 211, 211, 0.20);
+            background-color:rgba(255, 255, 255, 0.83);
+            margin: 16px;
+            height: 350px;
+            color: white;
+            transition-duration: 1s;
+            display:inline-block;
+           // filter:blur(7px);
+        }
+
+            .mainI:hover {
+                box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0,0,0,0.19);
+                //background-color: rgba(211, 211, 211, 0.63);
+                background-color:rgba(211, 211, 211, 0.74);
+            }
+        .bodyI {
+            background-color: #0088ea;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            font-weight: 700;
+            //height:500px;
+        }
+
+        .tI {
+            padding: 10px;
+            color: black;
+        }
+
+        .button {
+            background-color: cornflowerblue; /* Green */
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 1s;
+            margin: 5px;
+            border-radius: 5px;
+            /*box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);*/
+        }
+
+        .button1 {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+
+        .button:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+            color: dodgerblue;
+            background-color: white;
+            padding: 15px;
+        }
+        .pagee{
+            background-color:white;
+            width:70%;
+            margin-left:15%;
+            margin-right:15%;
+            
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        .menuButton {
+            height:100%;
+            width:20%;
+            background-color:cornflowerblue;
+            transition-duration:0.5s;
+            display: inline-block;
+        }
+        .menuButton:hover{
+            background-color:#0088ea;
+        }
+/*scrollbar*/
+::-webkit-scrollbar {
+    /*body*/
+    width: 30px;
+}
+ 
+::-webkit-scrollbar-track {
+    /*track*/
+    background-color:rgba(0,0,0,0);
+    
+    /*border-radius: 10px;*/
+    
+}
+ 
+::-webkit-scrollbar-thumb {
+    /*drag*/
+    //border-radius: 10px;
+    background-repeat: no-repeat;
+    background-image:url(https://sites.google.com/a/lca.edu/haskins/home/3754.png);
+}
+/* {
+    float: left;
+    text-shadow:0px 0px 10px #333;
+}*/
+
+.ly a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    //background-color:rgba(0, 148, 255, 0.80)
+}
+
+.ly a:hover:not(.active) {
+    background-color: #0088ea;
+    transition-duration:1s;
+    text-shadow:0px 0px 10px #333;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    color:white;
+}
+
+.active {
+    float: left;
+    transition-duration:1s;
+    background-color: #1377d8;
+}
+.menutop {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    //background: linear-gradient(lightgray, rgba(255, 255, 255, 0.50));
+    background-color:rgba(103, 169, 217, 0.0);
+   // box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border:none;
+    //height:100px;
+   // border-bottom:solid;
+    border-color:white;
+   // position:absolute;
+   left:0;
+}
+.notActive{
+    background-color:rgba(0, 148, 255, 0.80)
+}
+
+    </style>
+</head>
+<body onload="startGame()" style="font-family:Verdana;background-image:url(http://nicecastles.xyz/wp-content/uploads/2016/03/how-to-build-a-real-castle-tower.jpg);">
+    <iframe height="100" width="100" src="bar.html" class="menutop" id="menutop">
+        <ul class="menutop">
+            <!--style="box-shadow:0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"-->
+            <li class="ly"><a><img src="http://domenicosottosanti.altervista.org/images/logo.jpg" width="50" height="50"></a></li>
+            <li class="ly"><a class="active" href="Home">Home</a></li>
+            <li class="ly"><a class="notActive" href="#news">News</a></li>
+            <li class="ly"><a class="notActive" href="#contact">Contact</a></li>
+            <li class="ly"><a class="notActive" href="#about">About</a></li>
+            <li style="width:100%;text-decoration:none;border-color:black;margin-top:10px;margin-bottom:0px;float:left;margin-left:100px;border:solid;border-radius:3px;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);background-color:rgba(255, 255, 255, 0.55);width:43%"><marquee>Thank's for visiting Daniel.com  &copy;&reg;Dan co.  Tip: Logging in is recommended.   Feeling bored? Play a game!  </marquee></li>
+            <!--<li class="ly"><button id="btn2" class="button">Close Menu Bar</button></li>-->
+            <li class="ly"><a class="button" style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Login" onclick="//Login()">Log In</a></li>
+            <li class="ly"><a class="button" style="float:right;padding-top:5px;padding-bottom:5px;background-color:#ff6a00" href="Signup" onclick="//Login()">Sign Up</a></li>
+        </ul>
+    </iframe>
+    <!--<div style="top:0;margin-top:100px;display:inline-block;width:400px;hight:300px;right:0;position:fixed;"><img src="http://kx.cloudingenium.com/wp-content/uploads/sites/3/2014/03/Kx.CloudIngenium.com-Resolved-Zemanta-Editorial-Assistant-issues-with-https-SSL-Chrome-Load-Unsafe-Script.png"width="300"height="30" style="width:100%;height:100%"></div>
+    --><div class="ly"><button id="btn2" class="button" style="position:fixed;top:0;right:0;margin-right:15%;">Close Menu Bar</button></div>
+    <button id="btn1" class="button" style="position: fixed;top:0;right:0;">Open Menu Bar</button>
+    <div class="pagee" style="background-color:white;height:5000px;margin-top:150px;margin-bottom:30px;" id="teest">
+        <!--<div style="font-size:23px;background-color:rgba(0, 129, 255, 0.46);padding:20px;color:white;">DanDevelopment</div>-->
+        
+        <script>
+var crash2 = true;
+var myGamePiece;
+var myObstacles = [];
+var myScore;
+var HighScore = localStorage.getItem('HighScore');
+var Lfirst = true;
+            var ool = 0
+function Hgh() {
+    if (myGameArea.frameNo > localStorage.getItem('HighScore') || HighScore == undefined) {
+     HighScore = myGameArea.frameNo
+     localStorage.setItem('HighScore', HighScore)
+     document.getElementById("HighScore").innerHTML = localStorage.getItem('HighScore');
+    }
+    if (myGameArea.frameNo < localStorage.getItem('HighScore')) {
+        document.getElementById("HighScore").innerHTML = localStorage.getItem('HighScore');
+    }
+}
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 480;
+        this.canvas.height = 250;
+        this.context = this.canvas.getContext("2d");
+        document.getElementById('gare').insertBefore(this.canvas, document.body.nextElementSibling);
+      
+        this.frameNo = 0;
+        if (Lfirst == true) {
+            this.interval = setInterval(updateGameArea, 20);
+            this.interval2 = setInterval(gg, 20);
+            Lfirst = false;
+        }
+
+        },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+function startGame() {
+
+    myGamePiece = new component(30, 30, "red", 10, 120, "image");
+    myGamePiece.gravity = 0.05;
+    myScore = new component("25px", "Consolas", "white", 0, 40, "text");
+    myGameArea.start();
+
+}
+
+function component(width, height, color, x, y, type) {
+    this.type = type;
+    this.score = 0;
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;
+    this.x = x;
+    this.y = y;
+    this.gravity = 0;
+    this.gravitySpeed = 0;
+    this.update = function() {
+        ctx = myGameArea.context;
+        if (this.type == "text") {
+            ctx.font = this.width + " " + this.height;
+            ctx.fillStyle = color;
+            ctx.fillText(this.text, this.x, this.y);
+        } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+    this.newPos = function() {
+        this.gravitySpeed += this.gravity;
+        this.x += this.speedX;
+        this.y += this.speedY + this.gravitySpeed;
+        this.hitBottom();
+        this.hitTop();
+    }
+    this.hitBottom = function() {
+        var rockbottom = myGameArea.canvas.height - this.height;
+        if (this.y > rockbottom) {
+            this.y = rockbottom;
+            this.gravitySpeed = -0.7;
+        }
+    }
+    this.hitTop = function() {
+        var rocktop = 0 //- this.height;
+        if (this.y < rocktop) {
+            //this.y = rocktop;
+            this.gravitySpeed = 4;
+        }
+    }
+    this.crashWith = function(otherobj) {
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+            crash2 = crash;
+
+        }
+        return crash;
+    }
+}
+
+function keys() {
+
+}
+function updateGameArea() {
+    ool+=0.001
+    var x, height, gap, minHeight, maxHeight, minGap, maxGap;
+    for (i = 0; i < myObstacles.length; i += 1) {
+        if (myGamePiece.crashWith(myObstacles[i])) {
+            return;
+        }
+    }
+    myGameArea.clear();
+    myGameArea.frameNo += 1;
+    if (myGameArea.frameNo == 1 || everyinterval(130)) {
+        x = myGameArea.canvas.width;
+        minHeight = 20;
+        maxHeight = 200;
+        height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+        minGap = 50;
+        maxGap = 200;
+        gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+        myObstacles.push(new component(10, height, "green", x, 0));
+        myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
+    }
+    for (i = 0; i < myObstacles.length; i += 1) {
+        myObstacals[0].x -= ool
+        myObstacles[i].x += -1.3;
+        myObstacles[i].update();
+    }
+    myScore.text="SCORE: " + myGameArea.frameNo;
+    myScore.update();
+    myGamePiece.newPos();
+    myGamePiece.update();
+}
+  
+function everyinterval(n) {
+    if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
+    return false;
+   // ool+=0.05
+}
+    window.addEventListener('keyup', function (e) {
+        myGameArea.keyz = false;
+        accelerate(0.05)
+    })
+    window.addEventListener('keydown', function (e) {
+        myGameArea.key = e.keyCode;
+        accelerate(-0.2)
+        if (e.keyCode == 87) { window.location.reload(); }
+  //          var explosion = explosions.getFirstExists(false);
+  //  explosion.reset(30, 30);
+  //  explosion.play('kaboom', 30, false, true);
+   })
+function gg() {
+
+   if (myGameArea.keyz != false) {
+  //  if (myGameArea.key == 87) { accelerate(-0.2) }
+    }
+Hgh()
+}
+function accelerate(n) {
+    myGamePiece.gravity = n;
+}
+        </script>
+        <!--<div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);"class="mainI">
+            <div class="bodyI">Flappy</div>
+            <div id="realit"style="float:right;"></div>
+        <div class="game"style="float:left;width:100px;width:20%;padding:20px;">
+
+            <br>
+            <button class="button1" onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)"style="float:right;right:0;">Climb</button>
+            <button class="button1" onclick="startGame(); myGameArea.frameNo = 0; window.location.reload();"id="restrt"style="float:right;bottom:0;">Restart</button>
+            <p style="bottom:0;margin-bottom:30px;color:black;">High Score: </p><div id="HighScore" class="button1" style="background-color:dodgerblue;color:white;display:inline-block;border-radius:5px;float:right;top:0">...</div>
+        </div>
+            </div>-->
+        <div id="gare"style="margin-right:15%;margin-left:10%;"></div>
+        <div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);height:230px;" class="mainI"id="flapii">
+            <div class="bodyI">Flappy</div>
+            <button class="button1" onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)" style="">Climb</button>
+            <button class="button1" onclick="startGame(); myGameArea.frameNo = 0; window.location.reload();" id="start" style="">Start</button>
+            <div style="background-color:#eaeaea;border-radius:10px;padding:10px;color:black;">
+            <p style="bottom:0;margin-bottom:0px;color:black;">High Score: </p><div id="HighScore" class="button1" style="background-color:dodgerblue;color:white;display:inline-block;border-radius:5px;//float:right;//top:0">...</div>
+        </div>
+            </div>
+        <div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);height:100px;"id="agari" class="mainI">
+            <div class="bodyI">Agar.io</div>
+            <a class="button" onclick="//agar()" id="agar">Play</a>
+            </div>
+        <!--<div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);width:700px;height:500px;" class="mainI">
+            <div class="bodyI">Diep.io</div>
+            <iframe src="#http://diep.io/" width="500" height="400" style="width:100%;height:100%;"></iframe>
+        </div>-->
+        <div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);height:100px;" class="mainI">
+            <div class="bodyI">Splix.io</div>
+            <a id="splix" class="button">Play</a>
+        </div>
+        <div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);height:100px;" class="mainI">
+            <div class="bodyI">Slither.io</div>
+            <a id="slither" class="button">Play</a>
+        </div>
+        <div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);height:100px;" class="mainI">
+            <div class="bodyI">Narwhal.io</div>
+            <a id="narwhale" class="button">Play</a>
+        </div>
+        <div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);height:100px;" class="mainI">
+            <div class="bodyI">zlap.io</div>
+            <a id="zlap" class="button">Play</a>
+        </div>
+        <div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);height:100px;" class="mainI">
+            <div class="bodyI">Diep.io</div>
+            <a id="diep" class="button">Play</a>
+        </div>
+                <div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);height:100px;" class="mainI">
+            <div class="bodyI">Fireworks</div>
+            <a id="fireworks" class="button">Play</a>
+        </div>
+                        <div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);height:100px;" class="mainI">
+            <div class="bodyI">FreeRider HD</div>
+            <a id="freerider" class="button">Play</a>
+        </div>
+                       <div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);height:100px;" class="mainI">
+            <div class="bodyI">Cookie Clicker</div>
+            <a id="clicker" class="button">Play</a>
+        </div>
+        <div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);height:100px;" class="mainI" id="tanks">
+            <div class="bodyI">Tanks</div>
+            <a id="tanks" class="button">Play</a>
+        </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script>
+            
+                function Dterms() {
+
+                    //   var Dwindow = window.open("", "MsgWindow", "width=1000,height=1000")
+                    //    Dwindow.document.write('<p>ERROR</p>')
+                    //    Dwindow.document.location.href = 'Theatre.html'
+                }
+                function Cterms() {
+
+                    //   var Dwindow = window.open("", "MsgWindow", "width=1000,height=1000")
+                    //   Dwindow.document.write('<p>ERROR</p>')
+                    //   Dwindow.document.location.href = 'Apps.html'
+                }
+                function Games() {
+
+                    //    var Dwindow = window.open("", "MsgWindow", "width=1000,height=1000")
+                    //   Dwindow.document.write('<p>ERROR</p>')
+                    //   Dwindow.document.location.href = 'Games.html'
+                }
+                function Login() {
+
+                    var Dwindow = window.open("", "MsgWindow", "width=1000,height=1000")
+                    Dwindow.document.write('<p>ERROR</p>')
+                    Dwindow.document.location.href = 'login'
+                }
+                var myVar = setInterval(function () { myTimer() }, 1000);
+
+                function myTimer() {
+                    var d = new Date();
+                    var t = d.toLocaleTimeString();
+                    document.getElementById("demoee").innerHTML = t;
+                }
+
+                function myStopFunction() {
+                    clearInterval(myVar);
+                }
+                //     coooke();
+                //     function coooke() {
+
+                //alert('test')
+                function getCookie(cname) {
+                    var name = cname + "=";
+                    var ca = document.cookie.split(';');
+                    for (var i = 0; i < ca.length; i++) {
+                        var c = ca[i];
+                        while (c.charAt(0) == ' ') {
+                            c = c.substring(1);
+                        }
+                        if (c.indexOf(name) == 0) {
+                            return c.substring(name.length, c.length);
+                        }
+                    }
+                    return "";
+                }
+                // document.getElementById("demoee").innerHTML = 't';
+                // alert(getCookie('username'));
+                function checkCookie() {
+                    // alert('testt')
+                    var username = getCookie("username");
+                    if (username != "") {
+                        $("#loginsidebar").animate({ width: "10px" });
+                        $("#loginsidebar").animate({ height: "0px" });
+                        $("#loginsidebar").animate({ width: "0px" });
+                        //  alert("Welcome again " + username);
+                    } else {
+                        //  username = prompt("Please enter your name:", "");
+                        //  if (username != "" && username != null) {
+                        //   setCookie("username", username, 365);
+                        //  }
+                    }
+                }
+                checkCookie();
+                //     }
+                // function closelogin() {
+                /*
+                setTimeout("setNotification();", 1);
+                function setNotification() {
+                    var n
+                    if (window.webkitNotifications.checkPermission() != 0) {
+                        setNotification();
+                        return false;
+                    }
+                    n = window.webkitNotifications.createHTMLNotification('http://www.your-notification-address.com');
+                    n.show();
+                }*/
+                //    }
+                                function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+        var shown = 'false';
+        if(getCookie('username') == "Dan"){
+          // document.getElementById('tanks').innerHTML = '<p style="">Not dan</p>';
+          document.getElementById('tanks').style.visibility='visible'
+           
+        } else {
+         // document.getElementById('tanks').innerHTML = '<p style="">Are dan</p>'
+          // document.getElementById('tanks').style.visibility='hidden'
+          
+        }
+        if (window.webkitNotifications) {
+            console.log("Notifications are supported!");
+        }
+        else {
+            console.log("Notifications are not supported for this Browser/OS version yet.");
+        }
+    //    document.querySelector('#mes').addEventListener('click', function () {
+     //       if (window.webkitNotifications.checkPermission() == 0) { // 0 is PERMISSION_ALLOWED
+      //          // function defined in step 2
+       //         window.webkitNotifications.createNotification(
+        //            'mesc.png', 'Notification Title', 'Notification content...');
+         //   } else {
+          //      window.webkitNotifications.requestPermission();
+           // }
+    //    }, false);
+
+            </script>
+            <div onclick="deter()" class="button"style="bottom:0;right:0;position:absolute;"><div id="mes">Show Semi-violent Games</div></div>
+            <script>
+            
+            function deter(){
+              if(shown == 'true'){
+                hidev();
+              } else {
+                showv();
+              }
+            }
+            
+            function showv(){
+              document.getElementById('mes').innerHTML = 'Hide Semi-violent Games'
+              //$("#gare").animate({ height: "00px" });
+              document.getElementById('tanks').style.visibility='visible'
+              $("#gare").animate({ height: "300px" });
+              shown = 'true';
+            }
+            function hidev() {
+              document.getElementById('mes').innerHTML = 'Show Semi-violent Games'
+              $("#tanks").animate({ height: "00px" });
+              document.getElementById('tanks').style.visibility = 'hidden'
+              shown = 'false';
+            }
+
+            hidev();
+                //     $("#agari").animate({ height: "100" });
+
+                var splixv = '<div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);width:700px;height:500px;" class="mainI"><div class="bodyI">Splix.io</div><iframe src="http://splix.io/" width="500" height="400" style="width:100%;height:100%;"></iframe></div>'
+                var slitherv= '        <div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);width:700px;height:500px;" class="mainI"><div class="bodyI">Slither.io</div><iframe src="http://slither.io/" width="500" height="400" style="width:100%;height:100%;"></iframe></div>'
+                var narwhalev = '        <div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);width:700px;height:500px;" class="mainI"><div class="bodyI">Narwhal.io</div><iframe src="http://narwhale.io/" width="500" height="400" style="width:100%;height:100%;"></iframe></div>'
+                var zlapv = ' <div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);width:700px;height:500px;" class="mainI"><div class="bodyI">zlap.io</div><iframe src="http://zlap.io/#MTA0LjIzOC4xMzEuMTk3OjEyMjAw" width="500" height="400" style="width:100%;height:100%;"></iframe></div>'
+                var deipv = '<div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);width:700px;height:500px;" class="mainI">            <div class="bodyI">Diep.io</div><iframe src="http://diep.io/" width="500" height="400" style="width:100%;height:100%;"></iframe></div>'
+                var fireworksv = '<div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);width:700px;height:500px;" class="mainI">            <div class="bodyI">Fireworks</div><iframe src="Fireworks.html" width="500" height="400" style="width:100%;height:100%;"></iframe></div>'
+                var freeriderv = '<div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);width:700px;height:500px;" class="mainI">            <div class="bodyI">Freerider HD</div><iframe src="https://www.freeriderhd.com/random/track" width="500" height="400" style="width:100%;height:100%;"></iframe></div>'
+                var clickerv = '<div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);width:700px;height:500px;" class="mainI">            <div class="bodyI">Cookie Clicker</div><iframe src="http://orteil.dashnet.org/cookieclicker/" width="500" height="400" style="width:100%;height:100%;"></iframe></div>'
+                var tanksv = '<div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);width:700px;height:500px;" class="mainI">            <div class="bodyI">Cookie Clicker</div><iframe src="http://tankionline.com/battle-en.html#/server=EN6" width="500" height="400" style="width:100%;height:100%;"></iframe></div>'
+                var lod = 'false'
+                if(lod == 'false'){}
+                $(document).ready(function () {
+                    $("#agar").click(function () {
+                        $("#gare").animate({ height: "00px" });
+                        document.getElementById('gare').innerHTML = '        <div style="box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);width:700px;height:500px;"id="agari" class="mainI"><div class="bodyI">Agar.io</div><iframe src="http://agar.io/" width="500"height="400" style="width:100%;height:100%;"></iframe></div>'
+                        $("#flapii").animate({ height: "100px" });
+                        $("#gare").animate({ height: "100px" });
+                    })
+                    $("#splix").click(function () {
+                        $("#gare").animate({ height: "00px" });
+                        document.getElementById('gare').innerHTML = splixv
+                        $("#flapii").animate({ height: "100px" });
+                        
+                        $("#gare").animate({ height: "100px" });
+                    });
+                    $("#slither").click(function () {
+                        $("#gare").animate({ height: "00px" });
+                        document.getElementById('gare').innerHTML = slitherv
+                        $("#flapii").animate({ height: "100px" });
+                        $("#gare").animate({ height: "100px" });
+                    });
+                    $("#narwhale").click(function () {
+                        $("#gare").animate({ height: "00px" });
+                        document.getElementById('gare').innerHTML = narwhalev
+                        $("#flapii").animate({ height: "100px" });
+                        $("#gare").animate({ height: "100px" });
+                    });
+                    $("#zlap").click(function () {
+                        $("#gare").animate({ height: "00px" });
+                        document.getElementById('gare').innerHTML = zlapv
+                        $("#flapii").animate({ height: "100px" });
+                        $("#gare").animate({ height: "100px" });
+                    });
+                    $("#diep").click(function () {
+                        $("#gare").animate({ height: "00px" });
+                        document.getElementById('gare').innerHTML = deipv;
+                        $("#flapii").animate({ height: "100px" });
+                      $("#gare").animate({ height: "100px" });
+                    });
+                    $("#fireworks").click(function () {
+                        $("#gare").animate({ height: "00px" });
+                        document.getElementById('gare').innerHTML = fireworksv
+                        $("#flapii").animate({ height: "100px" });
+                        $("#gare").animate({ height: "100px" });
+                    });
+                                        $("#freerider").click(function () {
+                        $("#gare").animate({ height: "00px" });
+                        document.getElementById('gare').innerHTML = freeriderv
+                        $("#flapii").animate({ height: "100px" });
+                        $("#gare").animate({ height: "100px" });
+                    });
+                                       $("#clicker").click(function () {
+                        $("#gare").animate({ height: "00px" });
+                        document.getElementById('gare').innerHTML = clickerv
+                        $("#flapii").animate({ height: "100px" });
+                        $("#gare").animate({ height: "100px" });
+                                       });
+
+                                       $("#tanks").click(function () {
+                                           $("#gare").animate({ height: "00px" });
+                                           document.getElementById('gare').innerHTML = tanksv
+                                           $("#flapii").animate({ height: "100px" });
+                                           $("#gare").animate({ height: "100px" });
+                                       });
+                    $("#start").click(function () {
+                        $("#gare").animate({ height: "00px" });
+                        $("#flapii").animate({ height: "230px" });
+                        $("#gare").animate({ height: "100px" });
+
+                    });
+                    //    $("#agari").animate({ height: "100%" });
+                   //     $("#menutop").animate({ width: "100%" });
+                  //      $("#menutop").animate({ height: "100px" });
+                   //     $("#btn1").fadeOut();
+                   //     $("#btn2").fadeIn();
+               
+          //          $("#btn2").click(function () {
+           //             $("#menutop").animate({ height: "10px" });
+            //            $("#menutop").animate({ width: "0px" });
+             //           $("#menutop").animate({ height: "0px" });
+              //          $("#btn2").fadeOut();
+               //         $("#btn1").fadeIn();
+                //    });
+                });
+
+
+
+
+
+
+
+
+                $("#btn1").fadeOut();
+                $(document).ready(function () {
+                    $("#btn1").click(function () {
+                        $("#menutop").animate({ height: "10px" });
+                        $("#menutop").animate({ width: "100%" });
+                        $("#menutop").animate({ height: "100px" });
+                        $("#btn1").fadeOut();
+                        $("#btn2").fadeIn();
+                    });
+                    $("#btn2").click(function () {
+                        $("#menutop").animate({ height: "10px" });
+                        $("#menutop").animate({ width: "0px" });
+                        $("#menutop").animate({ height: "0px" });
+                        $("#btn2").fadeOut();
+                        $("#btn1").fadeIn();
+                    });
+                });
+                $(document).ready(function () {
+                    $("#closlogb").click(function () {
+                        $("#loginsidebar").animate({ width: "10px" });
+                        $("#loginsidebar").animate({ height: "0px" });
+                        $("#loginsidebar").animate({ width: "0px" });
+
+                    });
+                })
+            </script>
+        </div>
+</body>
+</html>
