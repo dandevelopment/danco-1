@@ -1,1 +1,2 @@
 Redirect /Logan.html https://dictatordan.github.io/danco/whatAbother.html
+ErrorDocument 404 /err.html
